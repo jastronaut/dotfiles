@@ -1,0 +1,9 @@
+[user]
+	name = Jas
+	email = 41971x@gmail.com
+[alias]
+	cm = commit
+	s = status
+	a = add
+	ch = checkout
+	d = diff
