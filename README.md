@@ -5,8 +5,9 @@
 
 - **Distro** Xubuntu
 - **Terminal** Xfce-terminal
+- **Terminal Font** Drucifer (Patched for powerline)
 - **Shell** zsh + ohmyzsh
-- **Terminal Font** Drucifer
+- **Color Sheme** Base 16 Ocean Dark
 - **WM** i3 gaps
 - **Bar** i3blocks
 - **GTK Theme** Arc Darker
@@ -15,8 +16,11 @@
 - **File Manager** Thunar
 - **Text Editor** Sublime Text 3
 
-... and a Surface Pro 3 <3
+... and a Surface Pro 3
 
-Obligatory screencap with no use at all
+Obligatory screencaps with no use at all
 
-![desktop](https://raw.githubusercontent.com/jastronaut/dotfiles/master/what.png)
+![desktop1](https://raw.githubusercontent.com/jastronaut/dotfiles/master/scrots/rice2a.png)
+![desktop2](https://raw.githubusercontent.com/jastronaut/dotfiles/master/scrots/rice2b.png)
+
+See my [startpages](https://github.com/jastronaut/startpages).
