@@ -1,13 +1,14 @@
 # dotfiles
-## A noob's first rice
+
+*a noob's first rice*
 
 #### Tools
 
 - **Distro** Xubuntu
 - **Terminal** Xfce-terminal
-- **Terminal Font** Drucifer (Patched for powerline)
+- **Terminal Font** Monaco
 - **Shell** zsh + ohmyzsh
-- **Color Sheme** Base 16 Ocean Dark
+- **Color Sheme** Base 16 Ocean Dark (Light for Sublime Text)
 - **WM** i3 gaps
 - **Bar** i3blocks
 - **GTK Theme** Arc Darker
@@ -20,7 +21,7 @@
 
 Obligatory screencaps with no use at all
 
-![desktop1](https://raw.githubusercontent.com/jastronaut/dotfiles/master/scrots/rice2a.png)
-![desktop2](https://raw.githubusercontent.com/jastronaut/dotfiles/master/scrots/rice2b.png)
+![desktop1](https://raw.githubusercontent.com/jastronaut/dotfiles/master/scrots/rice3a.png)
+![desktop2](https://raw.githubusercontent.com/jastronaut/dotfiles/master/scrots/rice3b.png)
 
 See my [startpages](https://github.com/jastronaut/startpages).
