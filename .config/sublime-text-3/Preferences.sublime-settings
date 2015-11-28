@@ -1,0 +1,14 @@
+{
+	"color_scheme": "Packages/Theme - Spacegray/base16-ocean.dark.tmTheme",
+	"dpi_scale": 1.5,
+	"enable_telemetry": "false",
+	"font_face": "Drucifer for Powerline",
+	"font_size": 11,
+	"ignored_packages":
+	[
+		"All Autocomplete",
+		"Vintage"
+	],
+	"tab_completion": "false",
+	"theme": "Spacegray.sublime-theme"
+}
