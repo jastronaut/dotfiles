@@ -17,6 +17,9 @@ HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.config/.zsh_history
 
+# aliases
+alias python=python3
+
 # Use modern completion system
 autoload -Uz compinit
 compinit
