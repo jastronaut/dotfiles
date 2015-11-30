@@ -5,13 +5,13 @@
 #### Tools
 
 - **Distro** Xubuntu
-- **Terminal** Xfce-terminal
-- **Terminal Font** Monaco
-- **Shell** zsh + ohmyzsh
-- **Color Sheme** Base 16 Ocean Dark (Light for Sublime Text)
-- **WM** i3 gaps
+- **Terminal** Urxvt
+- **Terminal Font** Drucifer
+- **Shell** zsh
+- **Color Sheme** Base 16 Ocean Dark
+- **WM** i3-gaps
 - **Bar** i3blocks
-- **GTK Theme** Arc Darker
+- **GTK Theme** Flattice
 - **Icon Theme** Flattr
 - **Music Player** Cmus
 - **File Manager** Thunar
@@ -21,7 +21,8 @@
 
 Obligatory screencaps with no use at all
 
-![desktop1](https://raw.githubusercontent.com/jastronaut/dotfiles/master/scrots/rice3a.png)
-![desktop2](https://raw.githubusercontent.com/jastronaut/dotfiles/master/scrots/rice3b.png)
+![desktop1](https://raw.githubusercontent.com/jastronaut/dotfiles/master/scrots/rice4a.png)
+![desktop2](https://raw.githubusercontent.com/jastronaut/dotfiles/master/scrots/rice4b.png)
+![desktop3](http://i.imgur.com/ZlpJobx.png)
 
 See my [startpages](https://github.com/jastronaut/startpages).
