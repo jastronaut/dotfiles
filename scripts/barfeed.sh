@@ -1,56 +1,54 @@
-#!/bin/sh
+#!/bin/bash
 
-FONT1="Drucifer for Powerline:size=12"
+# get config
+. ~/scripts/bar_config.sh
 
-# CD="~/.Xresources"
-# 
-# # Fetch the Colors
-FG="#C0C5CE"
-BG="#2B303B"
-GREEN="#D08770"
-# Panel 
-PW=2160
-PH=20
-PX=0
-PY=0
-
-SEP1="%{B$BG}%{F$GREEN}%{F-}%{B-}"
-SEP2="%{B$GREEN}%{F$BG}%{F-}%{B-}"
-
-# while :; do read line; eval $line; done &
-
-getClock() {
-    date '+%H:%M:%S'
+getClock() { # time
+    date '+%H:%M'
 }
 
-getCal() {
+getCal() { # date
 	date '+%a %b %d, %Y'
+	echo "$date"
 }
 
-getBattery() {
-    cat /sys/class/power_supply/BAT0/capacity
+getBattery() { # battery percentage
+	BAT=`acpi -b | grep -P -o '[0-9]+(?=%)'`
+
+	if [ $BAT -le 100 ] && [ $BAT -gt 39 ]
+	   then echo "%{F$LABEL}BAT%{F-} %{F$GREEN}$BAT%%{F-}"
+	elif [ $BAT -lt 40 ] && [ $BAT -gt 19 ]
+		then echo "%{F$LABEL}BAT%{F-} %{F$ORANGE}$BAT%%{F-}"
+	elif [ $BAT -lt 20 ] && [ $BAT -gt 0 ]
+		then echo "%{F$LABEL}BAT%{F-} %{F$RED}$BAT%%{F-}"
+	else
+		echo "%{F$LABEL}BAT%{F-} %{F$GREEN}$BAT%%{F-}"
+	fi
 }
 
-#groups() {
-#    cur=`xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}'`
-#    tot=`xprop -root _NET_NUMBER_OF_DESKTOPS | awk '{print $3}'`
-#
-#    for w in `seq 0 $((cur - 1))`; do line="${line}="; done
-#    line="${line}|"
-#    for w in `seq $((cur + 2)) $tot`; do line="${line}="; done
-#    echo $line
-#}
-
-ws(){
-	i3-msg -t get_outputs | sed 's/.*"current_workspace":"\([^"]*\)".*/\1/'
+ws() { # workspace numbers
+	all=`xprop -root _NET_NUMBER_OF_DESKTOPS | awk '{print $3}'`
+ 	ws=`xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}'`
+ 	echo "[ %{F$YELLOW}$ws%{F-} ] / $all"
 }
 
+getCmus() { # cmus status
+		C_REMOTE=$(cmus-remote -Q)
+		Instance=$(echo -e "$C_REMOTE" | wc -l)
+		if [ $Instance = 1 ]
+			then echo "%F{$LABEL} ~ %{F-}"
+		else
+			Cur_song=$(echo "$C_REMOTE" | grep tag | head -n 3 | sort -r | cut -d ' ' -f 3- )
+			artist=$(echo -e "$Cur_song" | head -n 2 | tail -n 1)
+			title=$(echo -e "$Cur_song" | head -n 1 )
+	    	echo -e "$artist %{F$LABEL}~%{F-} $title"
+	    fi
+}
+
+# print out the stuff in the grossest manner possible
 while :; do
-    LIFE="%{F$BG}%{B$GREEN}LIFE: $(getBattery)%{B-}"
-    TIME="%{B$BG}time : $(getClock)%{B-}"
-    DATE="%{F$BG}%{B$GREEN}cal: $(getCal)%{B-}"
-    DESK="%{B$BG}DESK: $(ws)%{B-}"
-    echo $LIFE$SEP1$TIME$SEP2$DATE$SEP1$DESK$SEP2
+
+    echo "%{l}$SEP$SEP$(ws)$SEP$SEP$(getCmus) %{c}$(getClock)$SEP$(getCal) %{r} $(getBattery)$SEP$SEP"
     sleep 1
-done |
-lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT1" -F "$FG" -B "$GREEN" -p -d
+
+done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$PANEL_FONT" -F "$FG" -p -d
