@@ -21,8 +21,9 @@
 
 Obligatory screencaps with no use at all
 
-![desktop1](http://i.imgur.com/2JsssnJ.png)
-![desktop2](http://i.imgur.com/52a5XoS.png)
-![desktop3](http://i.imgur.com/YjPaI2G.png)
+![desktop1](http://i.imgur.com/B9p1od5.png)
+![desktop2](http://i.imgur.com/QmLRQQo.png)
+![desktop3](http://i.imgur.com/Y8ebAMI.png)
+![desktop4](http://i.imgur.com/3oykGxS.png)
 
 See my [startpages](https://github.com/jastronaut/startpages).
