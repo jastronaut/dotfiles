@@ -61,4 +61,4 @@ while :; do
     echo "%{l} $SEP$SEP$(desk) $SEP$SEP $(getMusic) $SEP$SEP  %{c}$(getClock)$SEP$(getCal)  %{r}$(getVolume) $SEP$SEP $(getBattery)$SEP$SEP"
     sleep 1
 
-done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$PANEL_FONT" -F "$FG" -u 2px -p -d
+done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$PANEL_FONT" -F "$FG" -B "$BG" -u 2px -p -a 1
