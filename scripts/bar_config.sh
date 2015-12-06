@@ -1,7 +1,8 @@
 #!/bin/sh
 
 # font
-PANEL_FONT="SFNS Display:size=13"
+PANEL_FONT="Cantarell:size=14"
+# PANEL_FONT="-*-candy-*-*-*--11-*-*-*-*-*-*-*"
 
 # colors - base 16 ocean dark
 ## basics
@@ -20,10 +21,10 @@ PURPLE="#b48ead"
 
 # geometry
 PW=2160
-PH=25
+PH=20
 PX=0
-PY=3
+PY=7
 
 # misc
 ## 4 spaces
-SEP="    "
+SEP="    " 
