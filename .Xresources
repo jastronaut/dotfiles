@@ -1,11 +1,11 @@
 URxvt.scrollBar: false
 URxvt.iso14755 : false
 ! Fonts
-URxvt.font: xft:Drucifer:size=17
-URxvt.letterSpace: 1
+URxvt.font: xft:Inconsolata-dz for Powerline:size=18
+URxvt.letterSpace: 0
 
 ! URLs
-URxvt.perl-ext-common: default,matcher
+! URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
 
@@ -65,6 +65,7 @@ URxvt.externalBorder: 0
 *.color20:      base04
 *.color21:      base06
 
-URxvt.keysym.C-C: perl:clipboard:copy
-URxvt.keysym.C-V: perl:clipboard:paste
-URxvt.keysym.C-A-V: perl:clipboard:paste_escaped
+URxvt.keysym.Shift-Control-C: perl:clipboard:copy
+URxvt.keysym.^V: perl:clipboard:paste
+! URxvt.keysym.C-A-V: perl:clipboard:paste_escaped
+URxvt.perl-ext-common: default,clipboard
