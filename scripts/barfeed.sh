@@ -1,4 +1,8 @@
 #!/bin/bash
+#
+# lemonbar config by jastronaut
+## features: clock, date, volume level, battery (with color indicator), current song, and workspace status
+#
 
 # get config
 . ~/scripts/bar_config.sh
@@ -11,9 +15,18 @@ getCal() { # date
 	date '+%a %b %d, %Y'
 	echo "$date"
 }
+getVolume() { # get volume level from alsa thing
+	VOLUME=$(amixer get Master | grep % | sed -n 1p | awk -F '[' '{print $2}' | awk -F ']' '{print $1}')
+
+	if [ $VOLUME = '0%' ];
+		then echo -n " %{F$LABEL} MUTED %{F-} "
+	else
+		echo -n " %{F$LABEL}VOL %{F-} $VOLUME "
+fi
+}
 
 getBattery() { # battery percentage
-	BAT=`acpi -b | grep -P -o '[0-9]+(?=%)'`
+	BAT=$(acpi -b | grep -P -o '[0-9]+(?=%)')
 
 	if [ $BAT -le 100 ] && [ $BAT -gt 39 ]
 	   then echo "%{F$LABEL}BAT%{F-} %{F$GREEN}$BAT%%{F-}"
@@ -26,29 +39,26 @@ getBattery() { # battery percentage
 	fi
 }
 
-ws() { # workspace numbers
-	all=`xprop -root _NET_NUMBER_OF_DESKTOPS | awk '{print $3}'`
- 	ws=`xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}'`
- 	echo "[ %{F$YELLOW}$ws%{F-} ] / $all"
+getMusic() { # get artist and song from playerctl 
+	ARTIST="$(playerctl metadata artist)"
+	SONG="$(playerctl metadata title)"
+	echo "%{U$PURPLE} $ARTIST %{U-} %{F$LABEL} ~ %{F-} $SONG"
 }
 
-getCmus() { # cmus status
-		C_REMOTE=$(cmus-remote -Q)
-		Instance=$(echo -e "$C_REMOTE" | wc -l)
-		if [ $Instance = 1 ]
-			then echo "%F{$LABEL} ~ %{F-}"
-		else
-			Cur_song=$(echo "$C_REMOTE" | grep tag | head -n 3 | sort -r | cut -d ' ' -f 3- )
-			artist=$(echo -e "$Cur_song" | head -n 2 | tail -n 1)
-			title=$(echo -e "$Cur_song" | head -n 1 )
-	    	echo -e "$artist %{F$LABEL}~%{F-} $title"
-	    fi
+desk() { # get active desktop status
+	CUR=$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')
+	case $CUR in
+		0) echo "%{F$BLUE1}I%{F-}    II    III";;
+		1) echo "I    %{F$BLUE1}II%{F-}    III";;
+		2) echo "I    II    %{F$BLUE1}III%{F-}";;
+		*) echo "xx"
+	esac
 }
 
 # print out the stuff in the grossest manner possible
 while :; do
 
-    echo "%{l}$SEP$SEP$(ws)$SEP$SEP$(getCmus) %{c}$(getClock)$SEP$(getCal) %{r} $(getBattery)$SEP$SEP"
+    echo "%{l} $SEP$SEP$(desk) $SEP$SEP $(getMusic) $SEP$SEP  %{c}$(getClock)$SEP$(getCal)  %{r}$(getVolume) $SEP$SEP $(getBattery)$SEP$SEP"
     sleep 1
 
-done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$PANEL_FONT" -F "$FG" -p -d
+done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$PANEL_FONT" -F "$FG" -u 2px -p -d
