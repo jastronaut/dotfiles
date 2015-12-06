@@ -21,9 +21,9 @@ PURPLE="#b48ead"
 
 # geometry
 PW=2160
-PH=20
+PH=35
 PX=0
-PY=7
+PY=20
 
 # misc
 ## 4 spaces
