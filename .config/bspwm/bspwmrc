@@ -1,4 +1,8 @@
 #! /bin/sh
+#
+# bspwm config by jastronaut
+## mostly defaults, with a bunch of startup programs
+#
 
 sxhkd &
 
