@@ -1,4 +1,8 @@
 #!/bin/sh
+#
+# lemonbar config by jastronaut
+## fonts, colors, dimensions, bspwm stuff, and icons
+#
 
 # font
 PANEL_FONT="Cantarell:size=14"
