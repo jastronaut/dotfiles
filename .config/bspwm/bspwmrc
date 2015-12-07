@@ -31,4 +31,5 @@ bspc rule -a Screenkey manage=off
 
 feh --bg-fill ~/Pictures/iv.jpg
 compton --config ~/.config/candy.conf -b
+./scripts/panel
 rofi -key-run F8
