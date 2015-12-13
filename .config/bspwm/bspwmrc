@@ -32,6 +32,6 @@ bspc rule -a Screenkey manage=off
 feh --bg-fill ~/Pictures/bokeh.jpg
 compton --config ~/.config/candy.conf -b
 # redshift -l 34:118 &
-./scripts/batstatus &
-panel &
+./bin/batstatus &
+./bin/panel &
 rofi -key-run F8
