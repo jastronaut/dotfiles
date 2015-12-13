@@ -34,4 +34,3 @@ compton --config ~/.config/candy.conf -b
 # redshift -l 34:118 &
 ./bin/batstatus &
 ./bin/panel &
-rofi -key-run F8
