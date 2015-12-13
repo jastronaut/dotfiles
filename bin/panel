@@ -5,7 +5,7 @@
 #
 
 # get config
-. ~/.config/bspwm/panel/panel_config
+. ~/bin/panel_config
 
 getClock() { # time
     date '+%H:%M'
