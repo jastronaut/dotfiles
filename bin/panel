@@ -7,6 +7,10 @@
 # get config
 . ~/bin/panel_config
 
+launcher() { # click icon to invoke rofi
+	echo -e "${ICON_LAUNCH}"
+}
+
 getClock() { # time
     date '+%H:%M'
 }
@@ -15,13 +19,12 @@ getCal() { # date
 	date '+%a %b %d, %Y'
 	echo "$date"
 }
+
 getVolume() { # get volume level from alsa thing
 	VOLUME=$(amixer get Master | grep % | sed -n 1p | awk -F '[' '{print $2}' | awk -F ']' '{print $1}')
 
 	if [ $VOLUME = '0%' ];
 		then echo -e " %{F$LABEL}$ICON_MUTED   MUTED %{F-}"
-	#elif [ $VOLUME -gt '0%' ] && [ $VOLUME -le '50%' ]
-	#	then echo -e "%{F$LABEL}VOL   $ICON_VOLUME_LO%{F-}    $VOLUME"
 	else
 		echo -e "%{F$LABEL}VOL  $ICON_VOLUME_HI%{F-}    $VOLUME"
 	fi
@@ -30,22 +33,16 @@ getVolume() { # get volume level from alsa thing
 getBattery() { # battery percentage
 	BAT=$(acpi -b | grep -P -o '[0-9]+(?=%)')
 	if [ $BAT -eq 100 ]
-		then echo "%{F$LABEL}BAT%{F-} %{F$YELLOW}$ICON_BAT_STATE $BAT%%{F-}"
+		then echo "%{F$LABEL}BAT%{F-} %{F$YELLOW}  $BAT%%{F-}"
 	elif [ $BAT -le 90 ] && [ $BAT -gt 39 ]
-	   then echo -e "%{F$LABEL}BAT%{F-} %{F$GREEN}$ICON_BAT_STATE $BAT%%{F-}"
+	   then echo -e "%{F$LABEL}BAT%{F-} %{F$GREEN}  $BAT%%{F-}"
 	elif [ $BAT -lt 30 ] && [ $BAT -gt 19 ]
-		then echo "%{F$LABEL}BAT%{F-} %{F$ORANGE}$ICON_BAT_STATE $BAT%%{F-}"
+		then echo "%{F$LABEL}BAT%{F-} %{F$ORANGE}  $BAT%%{F-}"
 	elif [ $BAT -lt 20 ] && [ $BAT -gt 0 ]
-		then echo "%{F$LABEL}BAT%{F-} %{F$RED}$ICON_BAT_STATE $BAT%%{F-}"
+		then echo "%{F$LABEL}BAT%{F-} %{F$RED}  $BAT%%{F-}"
 	else
-		echo -e "%{F$LABEL}BAT%{F-} %{F$GREEN}$ICON_BAT_STATE $BAT%%{F-}"
+		echo -e "%{F$LABEL}BAT%{F-} %{F$GREEN}  $BAT%%{F-}"
 	fi
-}
-
-getMusic() { # get artist and song from playerctl 
-	ARTIST="$(playerctl metadata artist)"
-	SONG="$(playerctl metadata title)"
-	echo -e "%{F$ACCENT}$ICON_MUSIC%{F-} $ARTIST %{F$LABEL} ~ %{F-} $SONG"
 }
 
 mpd() { # based on neeasade's function
@@ -79,7 +76,7 @@ desk() { # get active workspace
 # print out the stuff in the grossest manner possible
 while :; do
 
-    echo -e "%{l}$SEP$(desk)$SEP$SEP$SEP$(getMusic)$SEP$(mpd)%{c}$ICON_TIME  $(getClock)$SEP$ICON_DATE  $(getCal)%{r}$(getVolume) $SEP$(getBattery)$SEP"
+    echo -e "%{l}$SEP$(launcher)$SEP$(desk)$SEP$SEP$SEP$(getMusic)$SEP$(mpd)%{c}$ICON_TIME  $(getClock)$SEP$ICON_DATE  $(getCal)%{r}$(getVolume) $SEP$(getBattery)$SEP"
     sleep 1
 
 done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$PANEL_FONT" -f "$PANEL_FONT2" -u "2" -F "$FG" -B "$BG" -p | zsh
