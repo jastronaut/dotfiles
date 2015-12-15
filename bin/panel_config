@@ -23,6 +23,7 @@ GREEN="#a3be8c"
 BLUE1="#96b5b4"
 BLUE2="#96b5b4"
 PURPLE="#b48ead"
+ACCENT="#e094a1"
 
 # geometry
 PW=2132
@@ -56,6 +57,10 @@ ICON_MUTED='\uf026'
 ICON_VOLUME_LO='\uf027'
 ICON_VOLUME_HI='\uf028'
 ICON_MUSIC='\uf001'
+ICO_PLAY='\uf04b'
+ICO_PAUSE='\uf04c'
+ICO_NEXT='\uf051'
+ICO_PREV='\uf048'
 ICON_DATE='\uf073'
 ICON_TIME='\uf017'
 WS1='\uf269'
