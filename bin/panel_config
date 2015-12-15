@@ -37,8 +37,16 @@ bspc config right_padding 0
 bspc config bottom_padding 0
 
 # misc
-## 8 spaces
-SEP="        " 
+## spaces. this is dumb
+SEP="        "
+
+## click click
+AC='%{A:'           # start click area
+AB=':}'             # end click area cmd
+AE='%{A}'           # end click area 
+
+## move out
+moveto='bspc desktop -f' # go to this desktop
 
 ## icons
 ICON='\uf0c2'
@@ -50,7 +58,6 @@ ICON_VOLUME_HI='\uf028'
 ICON_MUSIC='\uf001'
 ICON_DATE='\uf073'
 ICON_TIME='\uf017'
-ICON_WS1='\uf0ac'
-ICON_WS2='\uf121'
-ICON_WS3='\uf120'
-ICON_WS4='\uf07c'
+WS1='\uf269'
+WS2='\uf121'
+WS3='\uf120'
