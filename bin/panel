@@ -31,7 +31,7 @@ getBattery() { # battery percentage
 	BAT=$(acpi -b | grep -P -o '[0-9]+(?=%)')
 	if [ $BAT -le 100 ] && [ $BAT -gt 39 ]
 	   then echo -e "%{F$LABEL}BAT%{F-} %{F$GREEN}$ICON_BAT_STATE $BAT%%{F-}"
-	elif [ $BAT -lt 40 ] && [ $BAT -gt 19 ]
+	elif [ $BAT -lt 30 ] && [ $BAT -gt 19 ]
 		then echo "%{F$LABEL}BAT%{F-} %{F$ORANGE}$ICON_BAT_STATE $BAT%%{F-}"
 	elif [ $BAT -lt 20 ] && [ $BAT -gt 0 ]
 		then echo "%{F$LABEL}BAT%{F-} %{F$RED}$ICON_BAT_STATE $BAT%%{F-}"
@@ -49,11 +49,10 @@ getMusic() { # get artist and song from playerctl 
 desk() { # get active workspace
 	CUR=$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')
 	case $CUR in
-		0) echo -e "%{B$BLUE1}%{F$BG}%{U$FG} $ICON_WS1 %{U-}%{F-}%{B-}     $ICON_WS2      $ICON_WS3      $ICON_WS4 ";;
-		1) echo -e " $ICON_WS1     %{B$BLUE1}%{F$BG}%{U$FG} $ICON_WS2 %{U-}%{F-}%{B-}     $ICON_WS3      $ICON_WS4 ";;
-		2) echo -e " $ICON_WS1      $ICON_WS2     %{B$BLUE1}%{F$BG}%{U$FG} $ICON_WS3 %{U-}%{F-}%{B-}     $ICON_WS4 ";;
-		3) echo -e " $ICON_WS1      $ICON_WS2      $ICON_WS3     %{B$BLUE1}%{F$BG}%{U$FG} $ICON_WS4 %{U-}%{F-}%{B-} ";;
-		*) echo "xx"
+		0) echo -e "%{B$GREEN}%{F$BG}${AC}$moveto I${AB} $WS1 ${AE}%{F-}%{B-}     ${AC}$moveto II${AB} $WS2 ${AE}     ${AC}$moveto III${AB} $WS3 ${AE}";;
+		1) echo -e "${AC}$moveto I${AB} $WS1 ${AE}     %{B$GREEN}%{F$BG}${AC}$moveto II${AB} $WS2 ${AE}%{F-}%{B-}     ${AC}$moveto III${AB} $WS3 ${AE}";;
+		2) echo -e "${AC}$moveto I${AB} $WS1 ${AE}     ${AC}$moveto II${AB} $WS2 ${AE}     %{B$GREEN}%{F$BG}${AC}$moveto III${AB} $WS3 ${AE}%{F-}%{B-}";;
+		*) echo "$CUR"
 	esac
 }
 
@@ -63,4 +62,4 @@ while :; do
     echo -e "%{l}$SEP$(desk)$SEP$SEP$SEP$(getMusic)$SEP%{c}$ICON_TIME  $(getClock)$SEP$ICON_DATE  $(getCal)%{r}$(getVolume) $SEP$(getBattery)$SEP"
     sleep 1
 
-done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$PANEL_FONT" -f "$PANEL_FONT2" -F "$FG" -B "$BG" -u 2 -p
+done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$PANEL_FONT" -f "$PANEL_FONT2" -F "$FG" -B "$BG" -p | bash
