@@ -1,7 +1,0 @@
-[
-	{ "keys": ["alt+9"], "command": "toggle_side_bar" },
-	{ "keys": ["ctrl+k"], "command": "toggle_status_bar" },
-	{"keys": ["ctrl+alt+m"], "command": "toggle_menu"},
-	{"keys": ["ctrl+shift+a"], "command": "delete_trailing_spaces"},
-	{"keys": ["ctrl+shift+d"], "command": "toggle_trailing_spaces"}
-]
