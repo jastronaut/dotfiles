@@ -23,13 +23,13 @@ bspc config urgent_border_color '#D08770'
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
-bspc rule -a Gimp desktop=^8 state=floating follow=on
+bspc rule -a Gimp desktop=^2 state=floating
 bspc rule -a Chromium desktop=^2
 bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-feh --bg-fill ~/Pictures/bokeh.jpg
+feh --bg-fill ~/.config/xmaswall.jpg
 compton --config ~/.config/candy.conf -b
 # redshift -l 34:118 &
 ./bin/batstatus &
