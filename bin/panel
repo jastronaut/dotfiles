@@ -29,7 +29,9 @@ getVolume() { # get volume level from alsa thing
 
 getBattery() { # battery percentage
 	BAT=$(acpi -b | grep -P -o '[0-9]+(?=%)')
-	if [ $BAT -le 100 ] && [ $BAT -gt 39 ]
+	if [ $BAT -eq 100 ]
+		then echo "%{F$LABEL}BAT%{F-} %{F$YELLOW}$ICON_BAT_STATE $BAT%%{F-}"
+	elif [ $BAT -le 90 ] && [ $BAT -gt 39 ]
 	   then echo -e "%{F$LABEL}BAT%{F-} %{F$GREEN}$ICON_BAT_STATE $BAT%%{F-}"
 	elif [ $BAT -lt 30 ] && [ $BAT -gt 19 ]
 		then echo "%{F$LABEL}BAT%{F-} %{F$ORANGE}$ICON_BAT_STATE $BAT%%{F-}"
@@ -43,23 +45,41 @@ getBattery() { # battery percentage
 getMusic() { # get artist and song from playerctl 
 	ARTIST="$(playerctl metadata artist)"
 	SONG="$(playerctl metadata title)"
-	echo -e "%{F$YELLOW}$ICON_MUSIC%{F-} $ARTIST %{F$LABEL} ~ %{F-} $SONG"
+	echo -e "%{F$ACCENT}$ICON_MUSIC%{F-} $ARTIST %{F$LABEL} ~ %{F-} $SONG"
+}
+
+mpd() { # based on neeasade's function
+    cur_song="$(basename "$(mpc current -f "%artist% - %title%")" | cut -c1-30 )"
+
+    if [ -z "$cur_song" ];
+    	then echo "Stopped"
+    else
+        paused=$(mpc | grep paused)
+        [ -z "$paused" ] && toggle="${AC}mpc pause${AB}${ICO_PAUSE}${AE}" ||
+            toggle="${AC}mpc play${AB}${ICO_PLAY}${AE}"
+        prev="${AC}mpc prev${AB}${ICO_PREV}${AE}"
+        next="${AC}mpc next${AB}${ICO_NEXT}${AE}"
+        echo "$cur_song $prev $toggle $next"
+    fi
 }
 
 desk() { # get active workspace
 	CUR=$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')
 	case $CUR in
-		0) echo -e "%{B$GREEN}%{F$BG}${AC}$moveto I${AB} $WS1 ${AE}%{F-}%{B-}     ${AC}$moveto II${AB} $WS2 ${AE}     ${AC}$moveto III${AB} $WS3 ${AE}";;
-		1) echo -e "${AC}$moveto I${AB} $WS1 ${AE}     %{B$GREEN}%{F$BG}${AC}$moveto II${AB} $WS2 ${AE}%{F-}%{B-}     ${AC}$moveto III${AB} $WS3 ${AE}";;
-		2) echo -e "${AC}$moveto I${AB} $WS1 ${AE}     ${AC}$moveto II${AB} $WS2 ${AE}     %{B$GREEN}%{F$BG}${AC}$moveto III${AB} $WS3 ${AE}%{F-}%{B-}";;
-		*) echo "$CUR"
+		0) echo -e "%{B$ACCENT}%{F$BG}${AC}$moveto I${AB} $WS1 ${AE}%{F-}%{B-}     ${AC}$moveto II${AB} $WS2 ${AE}     ${AC}$moveto III${AB} $WS3 ${AE}";;
+		1) echo -e "${AC}$moveto I${AB} $WS1 ${AE}     %{B$ACCENT}%{F$BG}${AC}$moveto II${AB} $WS2 ${AE}%{F-}%{B-}     ${AC}$moveto III${AB} $WS3 ${AE}";;
+		2) echo -e "${AC}$moveto I${AB} $WS1 ${AE}     ${AC}$moveto II${AB} $WS2 ${AE}     %{B$ACCENT}%{F$BG}${AC}$moveto III${AB} $WS3 ${AE}%{F-}%{B-}";;
+		*) for i in `seq 1 $CUR`;
+        do
+                echo $i
+        done 
 	esac
 }
 
 # print out the stuff in the grossest manner possible
 while :; do
 
-    echo -e "%{l}$SEP$(desk)$SEP$SEP$SEP$(getMusic)$SEP%{c}$ICON_TIME  $(getClock)$SEP$ICON_DATE  $(getCal)%{r}$(getVolume) $SEP$(getBattery)$SEP"
+    echo -e "%{l}$SEP$(desk)$SEP$SEP$SEP$(getMusic)$SEP$(mpd)%{c}$ICON_TIME  $(getClock)$SEP$ICON_DATE  $(getCal)%{r}$(getVolume) $SEP$(getBattery)$SEP"
     sleep 1
 
-done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$PANEL_FONT" -f "$PANEL_FONT2" -F "$FG" -B "$BG" -p | bash
+done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$PANEL_FONT" -f "$PANEL_FONT2" -u "2" -F "$FG" -B "$BG" -p | zsh
