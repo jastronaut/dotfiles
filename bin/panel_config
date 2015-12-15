@@ -50,9 +50,8 @@ AE='%{A}'           # end click area
 moveto='bspc desktop -f' # go to this desktop
 
 ## icons
-ICON='\uf0c2'
+ICON_LAUNCH='%{A:rofi -show run:}\uf135%{A}'
 ICON_BAT='\uf241'
-ICON_BAT_STATE=' '
 ICON_MUTED='\uf026'
 ICON_VOLUME_LO='\uf027'
 ICON_VOLUME_HI='\uf028'
