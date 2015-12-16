@@ -44,24 +44,24 @@ SEP="        "
 ## click click
 AC='%{A:'           # start click area
 AB=':}'             # end click area cmd
-AE='%{A}'           # end click area 
+AE='%{A}'           # end click area
 
 ## move out
 moveto='bspc desktop -f' # go to this desktop
 
 ## icons
-ICON_LAUNCH='%{A:rofi -show run:}\uf135%{A}'
+### static
 ICON_BAT='\uf241'
 ICON_MUTED='\uf026'
 ICON_VOLUME_LO='\uf027'
 ICON_VOLUME_HI='\uf028'
 ICON_MUSIC='\uf001'
-ICO_PLAY='\uf04b'
-ICO_PAUSE='\uf04c'
-ICO_NEXT='\uf051'
-ICO_PREV='\uf048'
 ICON_DATE='\uf073'
 ICON_TIME='\uf017'
+### clickable
+ICON_LAUNCH="${AC}rofi -show run${AB}\uf135${AE}"
+ICO_NEXT='\uf101'
+ICO_PREV='\uf100'
 WS1='\uf269'
 WS2='\uf121'
 WS3='\uf120'
