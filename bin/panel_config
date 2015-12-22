@@ -5,8 +5,8 @@
 #
 
 # font
-PANEL_FONT="Cantarell:size=14"
-# PANEL_FONT="-*-candy-*-*-*--11-*-*-*-*-*-*-*"
+PANEL_FONT="Cantarell:size=13"
+#PANEL_FONT="-*-candy-*-*-*--11-*-*-*-*-*-*-*"
 PANEL_FONT2="FontAwesome:size=17"
 
 # colors - base 16 ocean dark
