@@ -11,7 +11,7 @@ super + b
 	subl3
 
 super + n
-	nautilus
+	thunar
 
 super + c
 	firefox
