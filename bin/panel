@@ -54,7 +54,7 @@ getBattery() { # battery percentage
 }
 
 mpd() { # based on neeasade's function
-    cur_song="$(basename "$(mpc current -f "%artist% - %title%")" | cut -c1-40 )"
+    cur_song="$(basename "$(mpc current -f "%artist% - %title%")" | cut -c1-50 )"
 
     if [ -z "$cur_song" ];
     	then echo "Stopped"
