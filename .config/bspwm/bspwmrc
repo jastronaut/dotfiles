@@ -26,6 +26,6 @@ bspc monitor -d I II III IV V VI VII VIII IX X
 bspc rule -a Gimp state=floating
 bspc rule -a Screenkey manage=off
 
-feh --bg-fill ~/.config/ame.jpg
+feh --bg-fill ~/.config/wall.jpg
 compton --config ~/.config/candy.conf -b
 panel &
