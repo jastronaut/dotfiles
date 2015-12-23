@@ -16,6 +16,12 @@ super + n
 super + c
 	firefox
 
+super + g
+	gimp
+	
+super + a
+	ahoviewer
+
 super + F10
 	scrot -e 'mv $f ~/Pictures/scrots/'
 
@@ -29,7 +35,7 @@ super + l
 	./bin/lock2
 
 super + F4
-	playerctl play-pause
+	mpc pause
 	
 super + F6
 	amixer -q set Master 5%+ unmute
