@@ -54,7 +54,7 @@ alt + shift + e
 	bspc quit
 
 # close window
-super + q
+alt + F4
 	bspc window -c
 
 # super + n
