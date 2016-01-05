@@ -35,8 +35,8 @@ setopt auto_cd
 # aliases
 alias python=python3
 alias subl=subl3
-alias emote="./bin/emote"
 alias forts="fortune -s"
+alias la="ls -a"
 
 # path stuff
 export PATH=/home/naut/bin:$PATH
