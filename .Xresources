@@ -1,7 +1,7 @@
 URxvt.iso14755 : false
 
 ! Fonts
-URxvt.font: xft:Inconsolata-dz for Powerline:size=18
+URxvt.font: xft:Monaco:size=15
 URxvt.letterSpace: 0
 
 ! URLs
