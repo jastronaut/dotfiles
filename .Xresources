@@ -1,5 +1,7 @@
 URxvt.iso14755 : false
 
+xscreensaver.newLoginCommand: dm-tool switch-to-greeter
+
 ! Fonts
 URxvt.font: xft:Monaco:size=15
 URxvt.letterSpace: 0
