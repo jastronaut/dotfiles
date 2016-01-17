@@ -32,7 +32,7 @@ PX=14
 PY=22
 
 # bspwm stuff
-bspc config top_padding 57
+bspc config top_padding 50
 bspc config left_padding 0
 bspc config right_padding 0
 bspc config bottom_padding 0
