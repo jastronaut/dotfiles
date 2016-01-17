@@ -37,6 +37,7 @@ alias python=python3
 alias subl=subl3
 alias forts="fortune -s"
 alias la="ls -a"
+alias batt="acpi -b"
 
 # path stuff
 export PATH=/home/naut/bin:$PATH
