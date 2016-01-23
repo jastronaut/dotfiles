@@ -1,0 +1,30 @@
+#!/bin/sh
+#
+
+. ~/bin/ob_panel_config
+
+getTime() {
+	echo $(date '+%H:%M')
+}
+
+getDate() {
+	echo $(date '+%a %b %d')
+}
+
+getBattery() { # battery percentage
+	echo $(acpi -b | grep -P -o '[0-9]+(?=%)') "%"
+}
+
+desk() { # get active workspace
+	CUR=$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')
+	case $CUR in
+		0) echo -e "%{U$ACCENT}%{+u}I%{-u} II III";;
+		1) echo -e "I %{U$ACCENT}%{+u}II%{-u} III";;
+		2) echo -e "I II %{U$ACCENT}%{+u}III%{-u}";;
+		*) echo "$CUR"
+	esac
+}
+
+while :; do
+	echo -e "  $(desk)   $(getBattery)   $(getTime)  "
+done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$PANEL_FONT" -F "$FG" -B "$BG" -p -u 4

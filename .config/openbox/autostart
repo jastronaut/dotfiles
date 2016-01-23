@@ -1,0 +1,7 @@
+#
+# openbox autostart by jastronaut
+#
+
+feh --bg-scale ~/.config/wall.jpg &
+compton --config ~/.config/candy.conf -b &
+ob_panel &
