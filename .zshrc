@@ -41,3 +41,4 @@ alias batt="acpi -b"
 
 # path stuff
 export PATH=/home/naut/bin:$PATH
+export PATH=/home/naut/Document/misc_scripts:$PATH
