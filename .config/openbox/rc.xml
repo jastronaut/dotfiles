@@ -8,21 +8,11 @@
   </resistance>
   <focus>
     <focusNew>yes</focusNew>
-    <!-- always try to focus new windows when they appear. other rules do
-       apply -->
     <followMouse>no</followMouse>
-    <!-- move focus to a window when you move the mouse into it -->
     <focusLast>yes</focusLast>
-    <!-- focus the last used window when changing desktops, instead of the one
-       under the mouse pointer. when followMouse is enabled -->
     <underMouse>no</underMouse>
-    <!-- move focus under the mouse, even when the mouse is not moving -->
     <focusDelay>200</focusDelay>
-    <!-- when followMouse is enabled, the mouse must be inside the window for
-       this many milliseconds (1000 = 1 sec) before moving focus to it -->
     <raiseOnFocus>no</raiseOnFocus>
-    <!-- when followMouse is enabled, and a window is given focus by moving the
-       mouse into it, also raise the window -->
   </focus>
   <placement>
     <policy>Smart</policy>
@@ -57,58 +47,40 @@
     <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
-      <name>SFNS Display</name>
+      <name>HaxrCorp 4089 Cyrillic AltGr</name>
       <size>17</size>
-      <!-- font size in points -->
       <weight>Bold</weight>
-      <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
-      <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveWindow">
-      <name>SFNS Display</name>
+      <name>HaxrCorp 4089 Cyrillic AltGr</name>
       <size>13</size>
-      <!-- font size in points -->
       <weight>Normal</weight>
-      <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
-      <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuHeader">
-      <name>SFNS Display</name>
+      <name>HaxrCorp 4089 Cyrillic AltGr</name>
       <size>14</size>
-      <!-- font size in points -->
       <weight>Normal</weight>
-      <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
-      <!-- 'italic' or 'normal' -->
     </font>
     <font place="MenuItem">
-      <name>SFNS Display</name>
-      <size>14</size>
-      <!-- font size in points -->
+      <name>HaxrCorp 4089 Cyrillic AltGr</name>
+      <size>24</size>
       <weight>Normal</weight>
-      <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
-      <!-- 'italic' or 'normal' -->
     </font>
     <font place="ActiveOnScreenDisplay">
-      <name>SFNS Display</name>
+      <name>HaxrCorp 4089 Cyrillic AltGr</name>
       <size>14</size>
-      <!-- font size in points -->
       <weight>Bold</weight>
-      <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
-      <!-- 'italic' or 'normal' -->
     </font>
     <font place="InactiveOnScreenDisplay">
-      <name>SFNS Display</name>
+      <name>HaxrCorp 4089 Cyrillic AltGr</name>
       <size>14</size>
-      <!-- font size in points -->
       <weight>Bold</weight>
-      <!-- 'bold' or 'normal' -->
       <slant>Normal</slant>
-      <!-- 'italic' or 'normal' -->
     </font>
   </theme>
   <desktops>
@@ -180,24 +152,6 @@
   <keyboard>
     <chainQuitKey>C-g</chainQuitKey>
     <!-- Keybindings for desktop switching -->
-    <keybind key="W-S-Right">
-      <action name="SendToDesktop">
-        <to>Right</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="W-S-Up">
-      <action name="SendToDesktop">
-        <to>up</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
-    <keybind key="W-S-Down">
-      <action name="SendToDesktop">
-        <to>down</to>
-        <wrap>no</wrap>
-      </action>
-    </keybind>
     <keybind key="W-1">
       <action name="GoToDesktop">
         <to>1</to>
@@ -217,9 +171,6 @@
       <action name="GoToDesktop">
         <to>4</to>
       </action>
-    </keybind>
-    <keybind key="W-d">
-      <action name="ToggleShowDesktop"/>
     </keybind>
     <!-- Keybindings for windows -->
     <keybind key="A-F4">
@@ -293,7 +244,8 @@
           <enabled>true</enabled>
           <name>rofi</name>
         </startupnotify>
-        <command>rofi -show run</command>
+        <command>rofi -show run -el 2 -width 80 -padding 200 -opacity "50" -bc "#040405" -bg "#040405" -fg "#c5c8c6" -hlbg "#040405" -hlfg "#ffffff"
+</command>
       </action>
     </keybind>
     <keybind key="W-f">
@@ -303,6 +255,15 @@
           <name>Firefox</name>
         </startupnotify>
         <command>firefox</command>
+      </action>
+    </keybind>
+    <keybind key="W-c">
+      <action name="Execute">
+        <startupnotify>
+          <enabled>true</enabled>
+          <name>Chromium</name>
+        </startupnotify>
+        <command>chromium --force-device-scale-factor=1.75</command>
       </action>
     </keybind>
     <keybind key="W-e">
@@ -464,36 +425,6 @@
         <action name="Lower"/>
         <action name="FocusToBottom"/>
         <action name="Unfocus"/>
-      </mousebind>
-      <mousebind button="A-Up" action="Click">
-        <action name="GoToDesktop">
-          <to>previous</to>
-        </action>
-      </mousebind>
-      <mousebind button="A-Down" action="Click">
-        <action name="GoToDesktop">
-          <to>next</to>
-        </action>
-      </mousebind>
-      <mousebind button="C-A-Up" action="Click">
-        <action name="GoToDesktop">
-          <to>previous</to>
-        </action>
-      </mousebind>
-      <mousebind button="C-A-Down" action="Click">
-        <action name="GoToDesktop">
-          <to>next</to>
-        </action>
-      </mousebind>
-      <mousebind button="A-S-Up" action="Click">
-        <action name="SendToDesktop">
-          <to>previous</to>
-        </action>
-      </mousebind>
-      <mousebind button="A-S-Down" action="Click">
-        <action name="SendToDesktop">
-          <to>next</to>
-        </action>
       </mousebind>
     </context>
     <context name="Titlebar">
