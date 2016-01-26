@@ -5,7 +5,7 @@
 #
 
 # font
-PANEL_FONT="Cantarell:size=13"
+PANEL_FONT="Cantarell:size=14"
 #PANEL_FONT="-*-candy-*-*-*--11-*-*-*-*-*-*-*"
 PANEL_FONT2="FontAwesome:size=17"
 
@@ -32,7 +32,7 @@ PX=14
 PY=22
 
 # bspwm stuff
-bspc config top_padding 50
+bspc config top_padding 60
 bspc config left_padding 0
 bspc config right_padding 0
 bspc config bottom_padding 0
@@ -62,6 +62,12 @@ ICON_TIME='\uf017'
 ICON_LAUNCH="${AC}rofi -show run${AB}\uf135${AE}"
 ICO_NEXT='\uf101'
 ICO_PREV='\uf100'
-WS1='\uf269'
-WS2='\uf121'
-WS3='\uf120'
+
+# workspace icons
+# WS1='\uf269'
+# WS2='\uf121'
+# WS3='\uf120'
+
+WS1='I'
+WS2='II'
+WS3='III'
