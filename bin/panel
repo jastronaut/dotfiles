@@ -41,13 +41,13 @@ getBattery() { # battery percentage
 	fi
 
 	if [ $BAT -eq 100 ]
-		then echo -e "%{F$LABEL}BAT   \uf240%{F-} %{F$YELLOW}    $BAT%%{F-}  %{F$YELLOW}$CH%{F-}"
+		then echo -e "%{F$LABEL}BAT  %{F-} %{F$YELLOW}    $BAT%%{F-}  %{F$YELLOW}$CH%{F-}"
 	elif [ $BAT -le 90 ] && [ $BAT -gt 39 ]
-	   then echo -e "%{F$LABEL}BAT   \uf241%{F-} %{F$GREEN}  $BAT%%{F-}  %{F$YELLOW}$CH%{F-}"
+	   then echo -e "%{F$LABEL}BAT  %{F-} %{F$GREEN}  $BAT%%{F-}  %{F$YELLOW}$CH%{F-}"
 	elif [ $BAT -lt 30 ] && [ $BAT -gt 19 ]
-		then echo -e "%{F$LABEL}BAT   \uf242%{F-} %{F$ORANGE}   $BAT%%{F-}  %{F$YELLOW}$CH%{F-}"
+		then echo -e "%{F$LABEL}BAT  %{F-} %{F$ORANGE}   $BAT%%{F-}  %{F$YELLOW}$CH%{F-}"
 	elif [ $BAT -lt 20 ] && [ $BAT -gt 0 ]
-		then echo -e "%{F$LABEL}BAT   \uf243%{F-} %{F$RED}  $BAT%%{F-}  %{F$YELLOW}$CH%{F-}"
+		then echo -e "%{F$LABEL}BAT  %{F-} %{F$RED}  $BAT%%{F-}  %{F$YELLOW}$CH%{F-}"
 	else
 		echo -e "%{F$LABEL}BAT%{F-} %{F$GREEN}$CH  $BAT%%{F-}"
 	fi
