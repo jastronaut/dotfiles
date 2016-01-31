@@ -23,7 +23,7 @@ super + a
 	ahoviewer
 
 super + F10
-	scrot -e 'mv $f ~/Pictures/scrots/'
+	scrot '%Y-%m-%d_(%H-%M).png'
 
 super + F1
 	exec xbacklight -2
@@ -138,7 +138,7 @@ super + Return
 	urxvt
 
 super + space
-	rofi -show run
+	dmenu_run -dim 0.5 -fn "Cantarell:20" -l 10 -h 40 -x 550 -y 300 -w 1000
 
 # make sxhkd reload its configuration files:
 super + Escape
