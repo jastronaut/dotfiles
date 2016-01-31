@@ -38,6 +38,7 @@ alias subl=subl3
 alias forts="fortune -s"
 alias la="ls -a"
 alias batt="acpi -b"
+alias sch="chromium --force-device-scale-factor=1.75"
 
 # path stuff
 export PATH=/home/naut/bin:$PATH
