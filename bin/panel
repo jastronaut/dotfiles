@@ -21,17 +21,17 @@ getDate() { # date
 }
 
 getVolume() { # get volume level from alsa thing
-	VOLUME=$(amixer get Master | grep % | sed -n 1p | awk -F '[' '{print $2}' | awk -F ']' '{print $1}')
+	vol=$(amixer get Master | grep % | sed -n 1p | awk -F '[' '{print $2}' | awk -F ']' '{print $1}')
 
-	if [ $VOLUME = '0%' ];
+	if [ $vol = '0%' ];
 		then echo -e " %{F$LABEL}$ICON_MUTED   MUTED %{F-}"
 	else
-		echo -e "%{F$LABEL}VOL  $ICON_VOLUME_HI%{F-}    $VOLUME"
+		echo -e "%{F$LABEL}VOL  $ICON_VOLUME_HI%{F-}    $vol"
 	fi
 }
 
 getBattery() { # battery percentage
-	BAT=$(acpi -b | grep -P -o '[0-9]+(?=%)')
+	bat=$(acpi -b | grep -P -o '[0-9]+(?=%)')
 	CH_STATE=$(acpi -b | cut -c12-19)
 	CH=""
 	if [ $CH_STATE = 'Charging' ]
@@ -40,16 +40,16 @@ getBattery() { # battery percentage
 		CH=""
 	fi
 
-	if [ $BAT -eq 100 ]
-		then echo -e "%{F$LABEL}BAT  %{F-} %{F$YELLOW}    $BAT%%{F-}  %{F$YELLOW}$CH%{F-}"
-	elif [ $BAT -le 90 ] && [ $BAT -gt 39 ]
-	   then echo -e "%{F$LABEL}BAT  %{F-} %{F$GREEN}  $BAT%%{F-}  %{F$YELLOW}$CH%{F-}"
-	elif [ $BAT -lt 30 ] && [ $BAT -gt 19 ]
-		then echo -e "%{F$LABEL}BAT  %{F-} %{F$ORANGE}   $BAT%%{F-}  %{F$YELLOW}$CH%{F-}"
-	elif [ $BAT -lt 20 ] && [ $BAT -gt 0 ]
-		then echo -e "%{F$LABEL}BAT  %{F-} %{F$RED}  $BAT%%{F-}  %{F$YELLOW}$CH%{F-}"
+	if [ $bat -le 100 ] && [ $bat -ge 80 ]
+	   then echo -e "%{F$LABEL}BAT  %{F-} %{F$RED}$FULL $FULL $FULL $FULL $FULL%{F-} %{F$GREEN}  $bat%%{F-}  %{F$YELLOW}$CH%{F-}"
+	elif [ $bat -lt 80 ] && [ $bat -ge 60 ]
+		then echo -e "%{F$LABEL}BAT %{F-} %{F$RED}$FULL $FULL $FULL $FULL%{F-} $EMPTY %{F$GREEN}   $bat%%{F-}  %{F$YELLOW}$CH%{F-}"
+	elif [ $bat -lt 60 ] && [ $bat -ge 40 ]
+		then echo -e "%{F$LABEL}BAT %{F-} %{F$RED}$FULL $FULL $FULL%{F-} $EMPTY $EMPTY %{F$GREEN}  $bat%%{F-}  %{F$YELLOW}$CH%{F-}"
+	elif [ $bat -lt 40 ] && [ $bat -ge 20 ]
+		then echo -e "%{F$LABEL}BAT %{F-} %{F$RED}$FULL $FULL%{F-} $EMPTY $EMPTY $EMPTY %{F$GREEN}  $bat%%{F-}  %{F$YELLOW}$CH%{F-}"
 	else
-		echo -e "%{F$LABEL}BAT%{F-} %{F$GREEN}$CH  $BAT%%{F-}"
+		echo -e "%{F$LABEL}BAT %{F-} %{F$RED}$FULL%{F-} $EMPTY $EMPTY $EMPTY $EMPTY %{F$RED}  $bat%%{F-}  %{F$YELLOW}$CH%{F-}"
 	fi
 }
 
@@ -69,19 +69,24 @@ mpd() { # based on neeasade's function
 }
 
 desk() { # get active workspace
-	CUR=$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')
-	case $CUR in
-		0) echo -e "%{U$RED}%{+u}${AC}$moveto I${AB} $WS1 ${AE}%{-u}     ${AC}$moveto II${AB} $WS2 ${AE}     ${AC}$moveto III${AB} $WS3 ${AE}";;
-		1) echo -e "${AC}$moveto I${AB} $WS1 ${AE}     %{U$RED}%{+u}${AC}$moveto II${AB} $WS2 ${AE}%{-u}     ${AC}$moveto III${AB} $WS3 ${AE}";;
-		2) echo -e "${AC}$moveto I${AB} $WS1 ${AE}     ${AC}$moveto II${AB} $WS2 ${AE}     %{U$RED}%{+u}${AC}$moveto III${AB} $WS3 ${AE}%{-u}";;
-		*) echo "$CUR"
+	cur=$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')
+	case $cur in
+		0) echo -e "%{U$PINK}%{+u}${AC}$moveto I${AB} $WS1 ${AE}%{-u}     ${AC}$moveto II${AB} $WS2 ${AE}     ${AC}$moveto III${AB} $WS3 ${AE}";;
+		1) echo -e "${AC}$moveto I${AB} $WS1 ${AE}     %{U$PINK}%{+u}${AC}$moveto II${AB} $WS2 ${AE}%{-u}     ${AC}$moveto III${AB} $WS3 ${AE}";;
+		2) echo -e "${AC}$moveto I${AB} $WS1 ${AE}     ${AC}$moveto II${AB} $WS2 ${AE}     %{U$PINK}%{+u}${AC}$moveto III${AB} $WS3 ${AE}%{-u}";;
+		*) echo "$cur"
 	esac
+}
+
+getBrightness() {
+	lvl="$(xbacklight -get | cut -c1-3)"
+	echo -e "%{F$LABEL}$BRIGHT%{F-}   $lvl"
 }
 
 # print out the stuff in the grossest manner possible
 while :; do
 
-    echo -e "%{l}$SEP$(launcher)$SEP$(desk)$SEP$(mpd)%{c}$(getClock)  $(getDate)%{r}$(getVolume) $SEP$(getBattery)$SEP"
+    echo -e "%{l}$SEP$(launcher)$SEP$(desk)$SEP$(mpd)%{c}$(getClock)  $(getDate)%{r}$(getVolume)    $(getBrightness)$SEP$(getBattery)$SEP"
     sleep 1
 
-done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$PANEL_FONT" -f "$PANEL_FONT2" -u 4px -F "$FG" -B "$BG" -p | bash
+done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT" -f "$ICO_FONT" -u 4px -F "$FG" -B "$BG_D" -p | bash
