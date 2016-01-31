@@ -4,7 +4,7 @@
 #
 
 title="$(whoami) @ $(hostname)"
-kernel="$(uname -r)"
+kernel="$(uname -r -o)"
 packages="$(pacman -Q | wc -l)"
 wm="bspwm"
 uptime="$(uptime -p | sed s:"up "::)"
@@ -18,7 +18,7 @@ dc="$(tput sgr0)"
 
 echo "                     $title"
 echo "       *         .-.   ${green}os${dc}: arch linux                          *"
-echo ".         ${red},o8888o,${dc} |   ${green}kernel${dc}: linux $kernel    '"
+echo ".         ${red},o8888o,${dc} |   ${green}kernel${dc}: $kernel    '"
 echo "        ${red},888888888${dc}/${red},${dc}   ${green}packages${dc}: $packages       ${gold}+${dc}"
 echo "    ${gold}*${dc}   ${red}888888888${dc}/${red}88${dc}   ${green}wm${dc}: $wm                   *"
 echo "  .     ${red}8888888${dc}/'${red}888${dc}   ${green}shell${dc}: $shell     .         "
