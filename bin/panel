@@ -24,9 +24,9 @@ getVolume() { # get volume level from alsa thing
 	vol=$(amixer get Master | grep % | sed -n 1p | awk -F '[' '{print $2}' | awk -F ']' '{print $1}')
 
 	if [ $vol = '0%' ];
-		then echo -e " %{F$LABEL}$ICON_MUTED   MUTED %{F-}"
+		then echo -e " %{F$LABEL}$ICON_MUTED  MUTED %{F-}"
 	else
-		echo -e "%{F$LABEL}VOL  $ICON_VOLUME_HI%{F-}    $vol"
+		echo -e "%{F$LABEL}VOL  $ICON_VOLUME_HI%{F-}   $vol"
 	fi
 }
 
@@ -41,15 +41,15 @@ getBattery() { # battery percentage
 	fi
 
 	if [ $bat -le 100 ] && [ $bat -ge 80 ]
-	   then echo -e "%{F$LABEL}BAT  %{F-} %{F$RED}$FULL $FULL $FULL $FULL $FULL%{F-} %{F$GREEN}  $bat%%{F-}  %{F$YELLOW}$CH%{F-}"
+	   then echo -e "%{F$LABEL}BAT  %{F-} %{F$PINK}$FULL $FULL $FULL $FULL $FULL%{F-} %{F$GREEN}  $bat%%{F-}  %{F$YELLOW}$CH%{F-}"
 	elif [ $bat -lt 80 ] && [ $bat -ge 60 ]
-		then echo -e "%{F$LABEL}BAT %{F-} %{F$RED}$FULL $FULL $FULL $FULL%{F-} $EMPTY %{F$GREEN}   $bat%%{F-}  %{F$YELLOW}$CH%{F-}"
+		then echo -e "%{F$LABEL}BAT %{F-} %{F$PINK}$FULL $FULL $FULL $FULL%{F-} $EMPTY %{F$GREEN}   $bat%%{F-}  %{F$YELLOW}$CH%{F-}"
 	elif [ $bat -lt 60 ] && [ $bat -ge 40 ]
-		then echo -e "%{F$LABEL}BAT %{F-} %{F$RED}$FULL $FULL $FULL%{F-} $EMPTY $EMPTY %{F$GREEN}  $bat%%{F-}  %{F$YELLOW}$CH%{F-}"
+		then echo -e "%{F$LABEL}BAT %{F-} %{F$PINK}$FULL $FULL $FULL%{F-} $EMPTY $EMPTY %{F$GREEN}  $bat%%{F-}  %{F$YELLOW}$CH%{F-}"
 	elif [ $bat -lt 40 ] && [ $bat -ge 20 ]
-		then echo -e "%{F$LABEL}BAT %{F-} %{F$RED}$FULL $FULL%{F-} $EMPTY $EMPTY $EMPTY %{F$GREEN}  $bat%%{F-}  %{F$YELLOW}$CH%{F-}"
+		then echo -e "%{F$LABEL}BAT %{F-} %{F$PINK}$FULL $FULL%{F-} $EMPTY $EMPTY $EMPTY %{F$GREEN}  $bat%%{F-}  %{F$YELLOW}$CH%{F-}"
 	else
-		echo -e "%{F$LABEL}BAT %{F-} %{F$RED}$FULL%{F-} $EMPTY $EMPTY $EMPTY $EMPTY %{F$RED}  $bat%%{F-}  %{F$YELLOW}$CH%{F-}"
+		echo -e "%{F$LABEL}BAT %{F-} %{F$PINK}$FULL%{F-} $EMPTY $EMPTY $EMPTY $EMPTY %{F$PINK}  $bat%%{F-}  %{F$YELLOW}$CH%{F-}"
 	fi
 }
 
@@ -78,15 +78,14 @@ desk() { # get active workspace
 	esac
 }
 
-getBrightness() {
+getBrightness() { # get brightness level
 	lvl="$(xbacklight -get | cut -c1-3)"
 	echo -e "%{F$LABEL}$BRIGHT%{F-}   $lvl"
 }
 
 # print out the stuff in the grossest manner possible
 while :; do
-
     echo -e "%{l}$SEP$(launcher)$SEP$(desk)$SEP$(mpd)%{c}$(getClock)  $(getDate)%{r}$(getVolume)    $(getBrightness)$SEP$(getBattery)$SEP"
     sleep 1
 
-done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT" -f "$ICO_FONT" -u 4px -F "$FG" -B "$BG_D" -p | bash
+done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT" -f "$ICO_FONT" -u 4px -F "$FG" -B "$BG" -p | bash
