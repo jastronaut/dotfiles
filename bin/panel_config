@@ -5,14 +5,14 @@
 #
 
 # font
-FONT="Cantarell:size=15"
+FONT="Pixelade:size=18"
 #PANEL_FONT="-*-candy-*-*-*--11-*-*-*-*-*-*-*"
 ICO_FONT="FontAwesome:size=17"
 
 # colors - base 16 ocean dark
 ## basics
 FG="#c0c5ce"
-BG="#2b303b"
+BG="#2c2d27"
 BG_D="#364751"
 LABEL="#65737E"
 
