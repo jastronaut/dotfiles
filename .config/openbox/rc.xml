@@ -65,7 +65,7 @@
       <slant>Normal</slant>
     </font>
     <font place="MenuItem">
-      <name>HaxrCorp 4089 Cyrillic AltGr</name>
+      <name>Pixelade</name>
       <size>24</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
@@ -244,8 +244,7 @@
           <enabled>true</enabled>
           <name>rofi</name>
         </startupnotify>
-        <command>rofi -show run -el 2 -width 80 -padding 200 -opacity "50" -bc "#040405" -bg "#040405" -fg "#c5c8c6" -hlbg "#040405" -hlfg "#ffffff"
-</command>
+        <command>dmenu_run -dim 0.5 -fn "Cantarell:20" -l 10 -h 40 -x 550 -y 300 -w 1000</command>
       </action>
     </keybind>
     <keybind key="W-f">
