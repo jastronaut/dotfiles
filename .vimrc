@@ -8,3 +8,4 @@ set number
 set incsearch
 set mouse=a
 
+set noswapfile
