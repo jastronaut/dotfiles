@@ -24,9 +24,9 @@ getVolume() { # get volume level from alsa thing
 	vol=$(amixer get Master | grep % | sed -n 1p | awk -F '[' '{print $2}' | awk -F ']' '{print $1}')
 
 	if [ $vol = '0%' ];
-		then echo -e " %{F$LABEL}$ICON_MUTED  MUTED %{F-}"
+		then echo -e "%{F$LABEL}$ICON_MUTED  MUTED %{F-}"
 	else
-		echo -e "%{F$LABEL}VOL  $ICON_VOLUME_HI%{F-}   $vol"
+		echo -e "%{F$LABEL}$ICON_VOLUME_HI%{F-}   $vol"
 	fi
 }
 
@@ -87,5 +87,4 @@ getBrightness() { # get brightness level
 while :; do
     echo -e "%{l}$SEP$(launcher)$SEP$(desk)$SEP$(mpd)%{c}$(getClock)  $(getDate)%{r}$(getVolume)    $(getBrightness)$SEP$(getBattery)$SEP"
     sleep 1
-
 done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT" -f "$ICO_FONT" -u 4px -F "$FG" -B "$BG" -p | bash
