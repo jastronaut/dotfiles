@@ -1,3 +1,5 @@
+execute pathogen#infect()
+filetype plugin indent on
 syntax enable
 set shiftwidth=4
 set tabstop=4
