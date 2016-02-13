@@ -5,13 +5,13 @@
 #
 
 # font
-FONT="Pixelade:size=18"
+FONT="PIXELA CYR:size=24"
 #PANEL_FONT="-*-candy-*-*-*--11-*-*-*-*-*-*-*"
 ICO_FONT="FontAwesome:size=17"
 
 # colors - base 16 ocean dark
 ## basics
-FG="#c0c5ce"
+FG="#D3D0C8"
 BG="#2c2d27"
 BG_D="#364751"
 LABEL="#65737E"
@@ -27,13 +27,13 @@ PURPLE="#b48ead"
 PINK="#c59799"
 
 # geometry
-PW=2120
+PW=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
 PH=37
-PX=20
-PY=17
+PX=0
+PY=0
 
 # bspwm stuff
-bspc config top_padding 50
+bspc config top_padding 40
 bspc config left_padding 0
 bspc config right_padding 0
 bspc config bottom_padding 0
