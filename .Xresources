@@ -1,98 +1,45 @@
-URxvt.iso14755 : false
+! jastronaut's .Xresources
 
-xscreensaver.newLoginCommand: dm-tool switch-to-greeter
-
-! Fonts
-URxvt.font: xft:Monaco:size=15
+! fonts 
+URxvt.font: xft:Inconsolata for Powerline:size=18
 URxvt.letterSpace: 0
 
 ! URLs
-! URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
 
+! copy and pasta
 URxvt.perl-ext-common: default,clipboard
 
+! misc stuff
+URxvt.iso14755: false
 URxvt.scrollBar: false
-URxvt.internalBorder: 40
+URxvt.internalBorder: 35
 URxvt.externalBorder: 0
 !URxvt*inheritPixmap:    false
 
-! Base16 Ocean
 ! Scheme: Chris Kempson (http://chriskempson.com)
 
-!#define base00 #2b303b
-!#define base01 #343d46
-!#define base02 #4f5b66
-!#define base03 #65737e
-!#define base04 #a7adba
-!#define base05 #c0c5ce
-!#define base06 #dfe1e8
-!#define base07 #eff1f5
-!#define base08 #bf616a
-!#define base09 #d08770
-!#define base0A #ebcb8b
-!#define base0B #a3be8c
-!#define base0C #96b5b4
-!#define base0D #8fa1b3
-!#define base0E #b48ead
-!#define base0F #ab7967
-!
-!*.foreground:   base05
-!*.background:   base00
-!*.cursorColor:  base05
-!
-!*.color0:       base00
-!*.color1:       base08
-!*.color2:       base0B
-!*.color3:       base0A
-!*.color4:       base0D
-!*.color5:       base0E
-!*.color6:       base0C
-!*.color7:       base05
-!
-!*.color8:       base03
-!*.color9:       base08
-!*.color10:      base0B
-!*.color11:      base0A
-!*.color12:      base0D
-!*.color13:      base0E
-!*.color14:      base0C
-!*.color15:      base07
-!
-!! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
-!! use 'shell' template to set these if necessary
-!*.color16:      base09
-!*.color17:      base0F
-!*.color18:      base01
-!*.color19:      base02
-!*.color20:      base04
-!*.color21:      base06
+#define base00 #2d2d2d
+#define base01 #393939
+#define base02 #515151
+#define base03 #747369
+#define base04 #a09f93
+#define base05 #d3d0c8
+#define base06 #e8e6df
+#define base07 #f2f0ec
+#define base08 #f2777a
+#define base09 #f99157
+#define base0A #ffcc66
+#define base0B #99cc99
+#define base0C #66cccc
+#define base0D #6699cc
+#define base0E #cc99cc
+#define base0F #d27b53
 
-
-! Base16 Ocean
-! Scheme: Chris Kempson (http://chriskempson.com)
-
-#define base00 #2b303b
-#define base01 #343d46
-#define base02 #4f5b66
-#define base03 #65737e
-#define base04 #a7adba
-#define base05 #c0c5ce
-#define base06 #dfe1e8
-#define base07 #eff1f5
-#define base08 #bf616a
-#define base09 #d08770
-#define base0A #ebcb8b
-#define base0B #a3be8c
-#define base0C #96b5b4
-#define base0D #8fa1b3
-#define base0E #b48ead
-#define base0F #ab7967
-
-*.foreground:   base02
-*.background:   base07
-*.cursorColor:  base02
+*.foreground:   base05
+*.background:   base00
+*.cursorColor:  base05
 
 *.color0:       base00
 *.color1:       base08
@@ -104,19 +51,11 @@ URxvt.externalBorder: 0
 *.color7:       base05
 
 *.color8:       base03
-*.color9:       base08
-*.color10:      base0B
-*.color11:      base0A
-*.color12:      base0D
-*.color13:      base0E
-*.color14:      base0C
+*.color9:       base09
+*.color10:      base01
+*.color11:      base02
+*.color12:      base04
+*.color13:      base06
+*.color14:      base0F
 *.color15:      base07
 
-! Note: colors beyond 15 might not be loaded (e.g., xterm, urxvt),
-! use 'shell' template to set these if necessary
-*.color16:      base09
-*.color17:      base0F
-*.color18:      base01
-*.color19:      base02
-*.color20:      base04
-*.color21:      base06
