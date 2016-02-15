@@ -4,17 +4,15 @@
 ## fonts, colors, dimensions, bspwm stuff, and icons
 #
 
-# font
+# fonts
 FONT="PIXELA CYR:size=24"
-#PANEL_FONT="-*-candy-*-*-*--11-*-*-*-*-*-*-*"
 ICO_FONT="FontAwesome:size=17"
 
-# colors - base 16 ocean dark
+#colors
 ## basics
-FG="#D3D0C8"
-BG="#2c2d27"
-BG_D="#364751"
-LABEL="#65737E"
+FG="#d3d0c8"
+BG="#2d2d2d"
+LABEL="#65737e"
 
 ## rainbow
 RED="#bf616a"
@@ -60,16 +58,12 @@ ICON_TIME='\uf017'
 FULL='\uf004'
 EMPTY='\uf08a'
 BRIGHT='\uf185'
-### clickable
-ICON_LAUNCH="${AC}dmenu_run -dim 0.5 -fn \"Cantarell:20\" -l 10 -h 40 -x 550 -y 300 -w 1000${AB}\uf135${AE}"
-ICO_NEXT='\uf101'
-ICO_PREV='\uf100'
 
-# workspace icons
-# WS1='\uf269'
-# WS2='\uf121'
-# WS3='\uf120'
+## clickable
+ICO_PREV='« '
+ICO_NEXT=' »'
 
+# workspaces
 WS1='I'
 WS2='II'
 WS3='III'
