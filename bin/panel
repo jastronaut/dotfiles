@@ -7,10 +7,6 @@
 # get config
 . ~/bin/panel_config
 
-launcher() { # click icon to invoke rofi
-	echo -e "%{F$LABEL} ${ICON_LAUNCH} %{F-}"
-}
-
 getClock() { # time
     date '+%H:%M'
 }
@@ -85,6 +81,6 @@ getBrightness() { # get brightness level
 
 # print out the stuff in the grossest manner possible
 while :; do
-    echo -e "%{l}$SEP$(launcher)$SEP$(desk)$SEP$(mpd)%{c}$(getClock)  $(getDate)%{r}$(getVolume)    $(getBrightness)$SEP$(getBattery)$SEP"
+    echo -e "%{l}$SEP$SEP$(desk)$SEP$(mpd)%{c}$(getClock)  $(getDate)%{r}$(getVolume)    $(getBrightness)$SEP$(getBattery)$SEP"
     sleep 1
 done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT" -f "$ICO_FONT" -u 4px -F "$FG" -B "$BG" -p | bash
