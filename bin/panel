@@ -43,7 +43,7 @@ getBattery() { # battery percentage
 	elif [ $bat -lt 60 ] && [ $bat -ge 40 ]
 		then echo -e "%{F$LABEL}BAT %{F-} %{F$PINK}$FULL $FULL $FULL%{F-} $EMPTY $EMPTY %{F$GRE}  $bat%%{F-} %{F$YEL}$ch%{F-}"
 	elif [ $bat -lt 40 ] && [ $bat -ge 20 ]
-		then echo -e "%{F$LABEL}BAT %{F-} %{F$PINK}$FULL $FULL%{F-} $EMPTY $EMPTY $EMPTY %{F$GRE}  $bat%%{F-} {F$YEL}$ch%{F-}"
+		then echo -e "%{F$LABEL}BAT %{F-} %{F$PINK}$FULL $FULL%{F-} $EMPTY $EMPTY $EMPTY %{F$GRE}  $bat%%{F-} %{F$YEL}$ch%{F-}"
 	else
 		echo -e "%{F$LABEL}BAT %{F-} %{F$PINK}$FULL%{F-} $EMPTY $EMPTY $EMPTY $EMPTY %{F$PINK}  $bat%%{F-} %{F$YEL}$ch%{F-}"
 	fi
