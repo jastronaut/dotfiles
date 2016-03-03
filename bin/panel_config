@@ -63,6 +63,7 @@ ICO_PREV='« '
 ICO_NEXT=' »'
 
 # workspaces
-WS1='I'
-WS2='II'
-WS3='III'
+WS1='1'
+WS2='2'
+WS3='3'
+WS4='4'
