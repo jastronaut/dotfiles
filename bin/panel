@@ -67,9 +67,10 @@ mpd() { # based on neeasade's function
 desk() { # get active workspace
 	cur=$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')
 	case $cur in
-		0) echo -e "%{U$PINK}%{+u}${AC}$moveto I${AB} $WS1 ${AE}%{-u}     ${AC}$moveto II${AB} $WS2 ${AE}     ${AC}$moveto III${AB} $WS3 ${AE}";;
-		1) echo -e "${AC}$moveto I${AB} $WS1 ${AE}     %{U$PINK}%{+u}${AC}$moveto II${AB} $WS2 ${AE}%{-u}     ${AC}$moveto III${AB} $WS3 ${AE}";;
-		2) echo -e "${AC}$moveto I${AB} $WS1 ${AE}     ${AC}$moveto II${AB} $WS2 ${AE}     %{U$PINK}%{+u}${AC}$moveto III${AB} $WS3 ${AE}%{-u}";;
+		0) echo -e "%{U$PINK}%{+u}${AC}$moveto I${AB} $WS1 ${AE}%{-u}    ${AC}$moveto II${AB} $WS2 ${AE}    ${AC}$moveto III${AB} $WS3 ${AE}    ${AC}$moveto IV${AB} $WS4 ${AE}";;
+		1) echo -e "${AC}$moveto I${AB} $WS1 ${AE}    %{U$PINK}%{+u}${AC}$moveto II${AB} $WS2 ${AE}%{-u}    ${AC}$moveto III${AB} $WS3 ${AE}    ${AC}$moveto IV${AB} $WS4 ${AE}";;
+		2) echo -e "${AC}$moveto I${AB} $WS1 ${AE}    ${AC}$moveto II${AB} $WS2 ${AE}    %{U$PINK}%{+u}${AC}$moveto III${AB} $WS3 ${AE}%{-u}    ${AC}$moveto IV${AB} $WS4 ${AE}";;
+		3) echo -e "${AC}$moveto I${AB} $WS1 ${AE}    ${AC}$moveto II${AB} $WS2 ${AE}    ${AC}$moveto III${AB} $WS3 ${AE}    %{U$PINK}%{+u}${AC}$moveto IV${AB} $WS4 ${AE}%{-u}";;
 		*) echo "$cur"
 	esac
 }
