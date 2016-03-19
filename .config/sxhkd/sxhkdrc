@@ -1,19 +1,16 @@
-#
+##
 # bspwm config by jastronaut
-## mostly defaults, but with a ton of keyboard shortcuts
+# mostly defaults, but with a ton of keyboard shortcuts
 #
-
+. ~/riceinfo
+##
+# hotkeys
 #
-## hotkeys
-#
-
-super + b
-	subl3
 
 super + n
-	thunar
+	pcmanfm
 
-super + c
+super + w 
 	firefox
 
 super + g
@@ -22,21 +19,27 @@ super + g
 super + a
 	ahoviewer
 
+super + b
+	subl3
+
+super + c 
+	chromium --high-dpi-support=1 --force-device-scale-factor=1.75
+
+super + o
+	spotify --force-device-scale-factor=1.50
+
 super + F10
-	scrot '%Y-%m-%d_(%H-%M).png'
-
-super + F1
-	exec xbacklight -2
-
-super + F2
-	exec xbacklight +2
+	scrot '%Y-%m-%d_(%H-%M).png' -e 'mv $f ~/pictures/scrots/'
 
 super + l
 	./bin/lock2
 
-super + F4
-	mpc pause
-	
+super + F1
+	exec xbacklight -1
+
+super + F2
+	exec xbacklight +1
+
 super + F6
 	amixer -q set Master 5%+ unmute
 
@@ -46,15 +49,15 @@ super + F5
 super + F3
 	amixer -q set Master mute
 
-#
-## bspwm stuff
+##
+# bspwm stuff
 #
 
 alt + shift + e
 	bspc quit
 
 # close window
-alt + F4
+super + q
 	bspc window -c
 
 # super + n
@@ -102,11 +105,11 @@ super + ctrl + {h,j,k,l}
 super + ctrl + {_,shift + }space
 	bspc {window -p cancel,desktop -c}
 
-ctrl + alt + {a,s,w,d}
-	bspc window -e {left -10,down +10,up -10,right +10}
+#ctrl + alt + {a,s,w,d}
+#	bspc window -e {left -10,down +10,up -10,right +10}
 
-ctrl + shift + {d,s,w,a}
-	bspc window -e {right -10,up +10,down -10,left +10}
+#ctrl + shift + {d,s,w,a}
+#	bspc window -e {right -10,up +10,down -10,left +10}
 
 super + ctrl + {1-9}
 	bspc window -r 0.{1-9}
@@ -130,16 +133,15 @@ super + @button{1-3}
 super + !button{1-3}
     bspc pointer -t %i %i
 
-#
-## wm independent hotkeys
+##
+# wm independent hotkeys
 #
 
 super + Return
 	urxvt
 
 super + space
-	dmenu_run -dim 0.5 -fn "Cantarell:20" -l 10 -h 40 -x 550 -y 300 -w 1000
-
+	dmenu_run -dim 0.5 -fn 'PIXELA CYR-22' -l 10 -h 40 -x 550 -y 300 -w 1000 -nb '#515151' -nf '#E8E6DF' -sb '#c59799' -sf '#E8E6DF'
 # make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd

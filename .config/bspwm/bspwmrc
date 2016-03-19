@@ -31,4 +31,5 @@ bspc rule -a Screenkey manage=off
 mpd
 feh --bg-scale ~/.config/wall.jpg
 compton --config ~/.config/candy.conf -b
+dropbox &
 panel &
