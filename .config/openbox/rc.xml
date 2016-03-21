@@ -47,26 +47,26 @@
     <keepBorder>yes</keepBorder>
     <animateIconify>yes</animateIconify>
     <font place="ActiveWindow">
-      <name>HaxrCorp 4089 Cyrillic AltGr</name>
-      <size>17</size>
-      <weight>Bold</weight>
+      <name>SFNS Display Ultra-Light</name>
+      <size>16</size>
+      <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
     <font place="InactiveWindow">
-      <name>HaxrCorp 4089 Cyrillic AltGr</name>
+      <name>SFNS Display</name>
       <size>13</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
     <font place="MenuHeader">
-      <name>HaxrCorp 4089 Cyrillic AltGr</name>
+      <name>SFNS Display</name>
       <size>14</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
     <font place="MenuItem">
-      <name>Pixelade</name>
-      <size>24</size>
+      <name>SFNS Display</name>
+      <size>16</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
