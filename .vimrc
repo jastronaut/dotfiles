@@ -24,6 +24,7 @@ filetype plugin indent on
 syntax enable
 set shiftwidth=4
 set tabstop=4
+set pastetoggle=<F2>
 
 set number
 set incsearch
