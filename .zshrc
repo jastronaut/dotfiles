@@ -38,10 +38,13 @@ alias forts="fortune -s"
 alias la="ls -a"
 alias batt="acpi -b"
 alias showcolors="cat /home/naut/.config/oomox/colors/pinky.sh"
-alias serv="sudo systemctl start httpd.service && sudo systemctl start mysqld"
-alias mylog="mysql -u roboscout -p"
-alias amen="sudo pacman -Syu"
 alias svim="sudo -E vim"
+alias fungeon='cd /run/media/naut/SHITDUNGEON'
+
+## pacman aliases
+alias amen='sudo pacman -Syu'
+alias pacinfo='pacman -Qi'
+alias pacsearch='pacman -Ss'
 
 # path stuff
 export PATH=/home/naut/bin:$PATH
