@@ -7,61 +7,61 @@
 # get config
 . ~/bin/panel_config
 
-getClock() { # time
-    date '+%H:%M'
+printClock() { # time
+	date '+%H:%M'
 }
 
-getDate() { # date
+printDate() { # date
 	date '+%a %b %d'
 	echo "$date"
 }
 
-getVolume() { # get volume level from alsa thing
+printVolume() { # get volume level from alsa thing
 	vol=$(amixer get Master | grep % | sed -n 1p | awk -F '[' '{print $2}' | awk -F ']' '{print $1}')
 
 	if [ $vol = '0%' ];
-		then echo -e "%{F$LABEL}VOL  MUTED %{F-}"
+	then echo -e "%{F$LABEL}${AC}amixer -q set Master 5%- unmute${AB}VOL${AE}  ${AC}amixer -q set Master 5%+ unmute${AB}MUTED${AE} %{F-}"
 	else
-		echo -e "%{F$LABEL}VOL%{F-}   $vol"
+		echo -e "%{F$LABEL}${AC}amixer -q set Master 5%- unmute${AB}VOL${AE}%{F-}  ${AC}amixer -q set Master 5%+ unmute${AB}$vol${AE}"
 	fi
 }
 
-getBattery() { # battery percentage
+printBattery() { # battery percentage
 	bat=$(acpi -b | grep -P -o '[0-9]+(?=%)')
 	ch_state=$(acpi -b | cut -c12-19)
 	ch=""
 	if [[ $ch_state = "Charging" ]]
-		then ch='*'
+	then ch='*'
 	else
 		ch=""
 	fi
 
 	if [ $bat -le 100 ] && [ $bat -ge 80 ]
-	   then echo -e "%{F$LABEL}BAT  %{F-} %{F$PINK}$FULL $FULL $FULL $FULL $FULL%{F-} %{F$GRE}  $bat%%{F-} %{F$YEL}$ch%{F-}"
+	then echo -e "%{F$LABEL}BAT  %{F-} %{F$PINK}$FULL $FULL $FULL $FULL $FULL%{F-} %{F$GRE}  $bat%%{F-} %{F$YEL}$ch%{F-}"
 	elif [ $bat -lt 80 ] && [ $bat -ge 60 ]
-		then echo -e "%{F$LABEL}BAT %{F-} %{F$PINK}$FULL $FULL $FULL $FULL%{F-} $EMPTY %{F$GRE}   $bat%%{F-} %{F$YEL}$ch%{F-}"
+	then echo -e "%{F$LABEL}BAT %{F-} %{F$PINK}$FULL $FULL $FULL $FULL%{F-} $EMPTY %{F$GRE}   $bat%%{F-} %{F$YEL}$ch%{F-}"
 	elif [ $bat -lt 60 ] && [ $bat -ge 40 ]
-		then echo -e "%{F$LABEL}BAT %{F-} %{F$PINK}$FULL $FULL $FULL%{F-} $EMPTY $EMPTY %{F$GRE}  $bat%%{F-} %{F$YEL}$ch%{F-}"
+	then echo -e "%{F$LABEL}BAT %{F-} %{F$PINK}$FULL $FULL $FULL%{F-} $EMPTY $EMPTY %{F$GRE}  $bat%%{F-} %{F$YEL}$ch%{F-}"
 	elif [ $bat -lt 40 ] && [ $bat -ge 20 ]
-		then echo -e "%{F$LABEL}BAT %{F-} %{F$PINK}$FULL $FULL%{F-} $EMPTY $EMPTY $EMPTY %{F$GRE}  $bat%%{F-} %{F$YEL}$ch%{F-}"
+	then echo -e "%{F$LABEL}BAT %{F-} %{F$PINK}$FULL $FULL%{F-} $EMPTY $EMPTY $EMPTY %{F$GRE}  $bat%%{F-} %{F$YEL}$ch%{F-}"
 	else
 		echo -e "%{F$LABEL}BAT %{F-} %{F$PINK}$FULL%{F-} $EMPTY $EMPTY $EMPTY $EMPTY %{F$PINK}  $bat%%{F-} %{F$YEL}$ch%{F-}"
 	fi
 }
 
 mpd() { # based on neeasade's function
-    cur_song="$(basename "$(mpc current -f "%artist% - %title%")" | cut -c1-50 )"
+	cur_song="$(basename "$(mpc current -f "%artist% - %title%")" | cut -c1-50 )"
 
-    if [ -z "$cur_song" ];
-    	then echo "Stopped"
-    else
-        paused=$(mpc | grep paused)
-        [ -z "$paused" ] && toggle="${AC}mpc pause${AB}pause${AE}" ||
-            toggle="${AC}mpc play${AB}play${AE}"
-        prev="${AC}mpc prev${AB}${ICO_PREV}${AE}"
-        next="${AC}mpc next${AB}${ICO_NEXT}${AE}"
-        echo "$cur_song$SEP%{F$LABEL}$prev $toggle $next%{F-}"
-    fi
+	if [ -z "$cur_song" ];
+	then echo "Stopped"
+	else
+		paused=$(mpc | grep paused)
+		[ -z "$paused" ] && toggle="${AC}mpc pause${AB}pause${AE}" ||
+			toggle="${AC}mpc play${AB}play${AE}"
+		prev="${AC}mpc prev${AB}${ICO_PREV}${AE}"
+		next="${AC}mpc next${AB}${ICO_NEXT}${AE}"
+		echo "$cur_song$SEP%{F$LABEL}$prev $toggle $next%{F-}"
+	fi
 }
 
 desk() { # get active workspace
@@ -82,6 +82,6 @@ getBrightness() { # get brightness level
 
 # print out the stuff in the grossest manner possible
 while :; do
-    echo -e "%{l}$SEP$SEP$(desk)$SEP$(mpd)%{c}$(getClock)  $(getDate)%{r}$(getVolume)    $(getBrightness)$SEP$(getBattery)$SEP$SEP"
-    sleep 1
+	echo -e "%{l}$SEP$SEP$(desk)$SEP$(mpd)%{c}$(printDate)   $(printClock)%{r}$(printVolume)    $(getBrightness)$SEP$(printBattery)$SEP$SEP"
+	sleep 1
 done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT" -f "$ICO_FONT" -u 4px -F "$FG" -B "$BG" -p | bash
