@@ -40,6 +40,7 @@ alias batt="acpi -b"
 alias showcolors="cat /home/naut/.config/oomox/colors/pinky.sh"
 alias svim="sudo -E vim"
 alias fungeon='cd /run/media/naut/SHITDUNGEON'
+alias ':q'='bye'
 
 ## pacman aliases
 alias amen='sudo pacman -Syu'
