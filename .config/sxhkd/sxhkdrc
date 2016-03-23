@@ -22,7 +22,13 @@ super + F2
 	exec xbacklight +1
 
 super + F10
-	scrot '%Y-%m-%d_(%H-%M).png' -e 'mv $f ~/pictures/scrots/'
+	scrot -e 'mv $f ~/pictures/screens/'
+
+XF86AudioRaiseVolume
+	amixer -q set Master 5%+ unmute
+
+XF86AudioLowerVolume
+	amixer -q set Master 5%- unmute
 
 super + F12
 	xinput disable 15 && xinput enable 15
