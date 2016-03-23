@@ -5,7 +5,8 @@
 #
 
 # fonts
-FONT="PIXELA CYR:size=24"
+#FONT="PIXELA CYR:size=24"
+FONT="Fantasque Sans Mono:size=14"
 ICO_FONT="FontAwesome:size=17"
 
 #colors
@@ -59,8 +60,8 @@ FULL='\uf004'
 EMPTY='\uf08a'
 
 ## clickable
-ICO_PREV='« '
-ICO_NEXT=' »'
+ICO_PREV='«'
+ICO_NEXT='»'
 
 # workspaces
 WS1='1'
