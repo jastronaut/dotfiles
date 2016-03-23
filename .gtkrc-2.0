@@ -2,7 +2,7 @@
 # Any customization should be done in ~/.gtkrc-2.0.mine instead.
 
 include "/home/naut/.gtkrc-2.0.mine"
-gtk-theme-name="oomox-pinky-light"
+gtk-theme-name="oomox-mizudori_light"
 gtk-icon-theme-name="numix-pink"
 gtk-font-name="SFNS Display 15"
 gtk-cursor-theme-name="Adwaita"
@@ -15,5 +15,5 @@ gtk-enable-event-sounds=1
 gtk-enable-input-feedback-sounds=1
 gtk-xft-antialias=1
 gtk-xft-hinting=1
-gtk-xft-hintstyle="hintslight"
+gtk-xft-hintstyle="hintfull"
 gtk-xft-rgba="rgb"
