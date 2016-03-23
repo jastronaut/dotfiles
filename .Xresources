@@ -19,6 +19,27 @@ URxvt.internalBorder: 35
 URxvt.externalBorder: 0
 !URxvt*inheritPixmap:    false
 
+dzen2.font:     xft:Fantasque Sans Mono:size=17 
+dzen2.foreground: #87b1c1
+dzen2.background: #000000
+
+#define COLOR0 #142014
+#define COLOR1 #4ba07e
+#define COLOR2 #1e91a0
+#define COLOR3 #0e81a0
+#define COLOR4 #77a095
+#define COLOR5 #3d8ca0
+#define COLOR6 #0b83a0
+#define COLOR7 #879ea0
+#define COLOR8 #307081
+#define COLOR9 #a9c1c8
+#define COLOR10 #8cb7c8
+#define COLOR11 #b4c0cc
+#define COLOR12 #d9d1d1
+#define COLOR13 #c6d5e0
+#define COLOR14 #d7dce0
+#define COLOR15 #e0dbd8
+
 #define base00 #2d2d2d
 #define base01 #393939
 #define base02 #515151
@@ -40,23 +61,23 @@ URxvt.externalBorder: 0
 *.background:   base00
 *.cursorColor:  base05
 
-*.color0:       base00
-*.color1:       base08
-*.color2:       base0B
-*.color3:       base0A
-*.color4:       base0D
-*.color5:       base0E
-*.color6:       base0C
-*.color7:       base05
+*.color0:       COLOR0
+*.color1:       COLOR1
+*.color2:       COLOR2
+*.color3:       COLOR3
+*.color4:      	COLOR4
+*.color5:       COLOR5
+*.color6:       COLOR6
+*.color7:       COLOR7
 
-*.color8:       base03
-*.color9:       base08
-*.color10:      base0B
-*.color11:      base0A
-*.color12:      base0D
-*.color13:      base0E
-*.color14:      base0C
-*.color15:      base07
+*.color8:       COLOR8
+*.color9:       COLOR9
+*.color10:      COLOR10
+*.color11:      COLOR11
+*.color12:      COLOR12
+*.color13:     	COLOR13
+*.color14:      COLOR14
+*.color15:      COLOR15
 
 *.color16:      base09
 *.color17:      base0F
