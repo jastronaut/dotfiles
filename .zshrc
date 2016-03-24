@@ -18,7 +18,7 @@ autoload -U colors && colors
 promptinit
 PROMPT='%F{red}%~%f
 » '
-RPROMPT='%T %W'
+# RPROMPT='%T %W'
 
 # tab stuff
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
