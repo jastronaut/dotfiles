@@ -17,7 +17,7 @@ bspc config focus_by_distance   true
 bspc config focus_follows_pointer true
 
 bspc config normal_border_color '#515151'
-bspc config focused_border_color '#d3d0c8'
+bspc config focused_border_color '#87b1c1'
 bspc config presel_border_color '#b5bd68'
 bspc config normal_sticky_border_color '#8abeb7'
 bspc config focused_sticky_border_color '#f0c674'
@@ -25,11 +25,11 @@ bspc config urgent_border_color '#D08770'
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
-bspc rule -a Gimp state=floating
+bspc rule -a Onboard state=floating
 bspc rule -a Screenkey manage=off
 
 mpd
-feh --bg-scale ~/.config/wall.jpg
+feh --bg-scale ~/pictures/wall.jpg
 compton --config ~/.config/candy.conf -b
 dropbox &
 panel &
