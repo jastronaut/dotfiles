@@ -16,6 +16,10 @@ printDate() { # date
 	echo "$date"
 }
 
+launchKeyboard() {
+	echo -e "${AC}onboard${AB} $KEYB ${AE}"
+}
+
 printVolume() { # get volume level from alsa thing
 	vol=$(amixer get Master | grep % | sed -n 1p | awk -F '[' '{print $2}' | awk -F ']' '{print $1}')
 
@@ -82,6 +86,6 @@ getBrightness() { # get brightness level
 
 # print out the stuff in the grossest manner possible
 while :; do
-	echo -e "%{l}  $(desk)   $(mpd)%{c}$(printDate)  $(printClock)%{r}$(printVolume)  $(getBrightness)  $(printBattery)  "
+	echo -e "%{l}  $(desk)   $(mpd)%{c}$(printDate)  $(printClock)%{r} $(launchKeyboard)  $(printVolume)  $(getBrightness)  $(printBattery)  "
 	sleep 1
 done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT" -f "$ICO_FONT" -u 4px -F "$FG" -B "$BG" -p | bash

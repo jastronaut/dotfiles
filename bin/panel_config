@@ -6,7 +6,7 @@
 
 # fonts
 #FONT="PIXELA CYR:size=24"
-FONT="Fantasque Sans Mono:size=14"
+FONT="Fantasque Sans Mono:size=16"
 ICO_FONT="FontAwesome:size=17"
 
 #colors
@@ -58,6 +58,7 @@ ICON_DATE='\uf073'
 ICON_TIME='\uf017'
 FULL='\uf004'
 EMPTY='\uf08a'
+KEYB='\uf11c'
 
 ## clickable
 ICO_PREV='«'
