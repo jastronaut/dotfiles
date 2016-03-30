@@ -37,7 +37,6 @@ alias python=python3
 alias forts="fortune -s"
 alias la="ls -a"
 alias batt="acpi -b"
-alias showcolors="cat /home/naut/.config/oomox/colors/pinky.sh"
 alias svim="sudo -E vim"
 alias fungeon='cd /run/media/naut/SHITDUNGEON'
 alias ':q'='bye'
@@ -46,6 +45,9 @@ alias ':q'='bye'
 alias amen='sudo pacman -Syu'
 alias pacinfo='pacman -Qi'
 alias pacsearch='pacman -Ss'
+alias pacorphans='pacman -Qtdq'
+alias pacinst='sudo pacman -S'
+alias pacrm='sudo pacman -R'
 
 # path stuff
 export PATH=/home/naut/bin:$PATH
