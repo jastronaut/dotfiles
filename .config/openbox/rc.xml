@@ -71,13 +71,13 @@
       <slant>Normal</slant>
     </font>
     <font place="ActiveOnScreenDisplay">
-      <name>HaxrCorp 4089 Cyrillic AltGr</name>
+      <name>SFNS Display</name>
       <size>14</size>
       <weight>Bold</weight>
       <slant>Normal</slant>
     </font>
     <font place="InactiveOnScreenDisplay">
-      <name>HaxrCorp 4089 Cyrillic AltGr</name>
+      <name>SFNS Display</name>
       <size>14</size>
       <weight>Bold</weight>
       <slant>Normal</slant>
@@ -242,9 +242,9 @@
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>rofi</name>
+          <name>dmenu</name>
         </startupnotify>
-        <command>dmenu_run -dim 0.5 -fn "Cantarell:20" -l 10 -h 40 -x 550 -y 300 -w 1000</command>
+        <command>dmenu_run -dim 0.5 -fn 'Fantasque Sans Mono:size=15' -l 10 -h 40 -x 550 -y 300 -w 1000 -nb '#515151' -nf '#E8E6DF' -sb '#c59799' -sf '#E8E6DF'</command>
       </action>
     </keybind>
     <keybind key="W-f">

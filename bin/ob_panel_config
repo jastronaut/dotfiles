@@ -1,7 +1,7 @@
 #!/bin/sh
 #
 
-PANEL_FONT="PIXELA CYR:size=20"
+PANEL_FONT="Fantasque Sans Mono:size=15"
 PANEL_FONT2="FontAwesome:size=17"
 
 FG="#c0c5ce"
