@@ -10,6 +10,8 @@ wm=$(wmctrl -m | grep -o "Name: .*" | cut -f2- -d' ')
 uptime="$(uptime -p | sed s:"up "::)"
 music="$(mpc current | cut -c 1-40)"
 shell="$SHELL"
+theme=$(cat ~/.config/gtk-3.0/settings.ini | grep -o "gtk-theme-name=.*" | cut -f2- -d'=')
+
 
 red="$(tput setaf 1)"
 green="$(tput setaf 2)"
@@ -22,6 +24,6 @@ echo ".         ${red},o8888o,${dc} |   ${green}kernel${dc}: $kernel    '"
 echo "        ${red},888888888${dc}/${red},${dc}   ${green}packages${dc}: $packages       ${gold}+${dc}"
 echo "    ${gold}*${dc}   ${red}888888888${dc}/${red}88${dc}   ${green}wm${dc}: $wm                   *"
 echo "  .     ${red}8888888${dc}/${red}'888${dc}   ${green}shell${dc}: $shell     .         "
-echo "        ${red}'8888${dc}/${red}'8888'${dc}   ${green}song${dc}: $music"
-echo " +      ( ${red}'${dc},${red}'888P'${dc}                  .                 ${gold}*${dc}"
+echo "        ${red}'8888${dc}/${red}'8888'${dc}   ${green}gtk${dc}: $theme"
+echo " +      ( ${red}'${dc},${red}'888P'${dc}     ${green}song${dc}: $music           .                 ${gold}*${dc}"
 echo "        '-'         '           +"
