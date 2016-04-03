@@ -11,7 +11,7 @@ super + c
 	firefox
 
 super + n
-	pcmanfm
+	nautilus
 
 super + b
 	subl3
@@ -23,7 +23,9 @@ super + F2
 	exec xbacklight +1
 
 super + F10
-	scrot -e 'mv $f ~/pictures/screens'
+	scrot -e 'mv $f ~/pictures/screens' && ((echo congrats; echo "~ screenshot taken ~") | dzen2 -fn "Fantasque Sans Mono:size=16" -p 2 -fg "#e8e6df" -bg "#2d2d2d" -w 300 -x 1700 -y 50 -u -ta c -sa c -l 2 -e onstart=uncollapse)
+
+# notify-send screen "screenshot has been taken" --expire-time=3
 
 super + F8
 	chromium --force-device-scale-factor=1.75
@@ -34,8 +36,9 @@ XF86AudioRaiseVolume
 XF86AudioLowerVolume
 	amixer -q set Master 5%- unmute
 
-super + F12
-	xinput disable 15 && xinput enable 15
+super + XF86AudioLowerVolume
+	xinput disable 15 && xinput enable 15 && ((echo congrats; echo "~ touch reconfigured ~") | dzen2 -fn "Fantasque Sans Mono:size=16" -p 2 -fg "#e8e6df" -bg "#2d2d2d" -w 300 -x 1700 -y 50 -u -ta c -sa c -l 2 -e onstart=uncollapse)
+#notify-send congrats "touch has been reconfigured" --expire-time=1
 
 super + l
 	lock2
@@ -54,7 +57,7 @@ super + Escape
 
 # quit bspwm normally
 alt + shift + e
-	bspc quit
+	mpc pause && killall mpd && bspc quit
 
 # close and kill
 alt + F4
