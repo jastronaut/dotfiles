@@ -2,6 +2,8 @@
 # openbox autostart by jastronaut
 #
 
-feh --bg-scale ~/.config/wall.jpg &
-compton --config ~/.config/candy.conf -b &
+mpd
+feh --bg-scale ~/pictures/wall_ob.jpg &
+compton --backend glx --paint-on-overlay --vsync opengl-swc --config ~/.config/candy.conf -b
+dropbox &
 ob_panel &
