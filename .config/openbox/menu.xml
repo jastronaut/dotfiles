@@ -19,14 +19,6 @@
       <command>urxvt</command>
     </action>
   </item>
-  <item label="Gnome Terminal">
-    <action name="Execute">
-      <command>gnome-terminal</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-      </startupnotify>
-    </action>
-  </item>
 </menu>
 
 <menu id="apps-net-menu" label="www">
@@ -38,7 +30,15 @@
         <wmclass>Firefox</wmclass>
       </startupnotify>
     </action>
-  </item>
+	</item>
+	<item label="Chromium">
+		<action name="Execute">
+			<command>chromium --force-device-scale-factor=1.75</command>
+			<startupnotify>
+				<enabled>yes</enabled>
+			</startupnotify>
+		</action>
+	</item>
 </menu>
 
 <menu id="apps-multimedia-menu" label="music">
@@ -57,21 +57,13 @@
         <enabled>yes</enabled>
       </startupnotify>
     </action>
-  </item>  
+  </item>
 </menu>
 
 <menu id="apps-fileman-menu" label="files">
-  <item label="Nautilus">
+  <item label="PCManFM">
     <action name="Execute">
-      <command>nautilus --no-desktop --browser</command>
-      <startupnotify>
-        <enabled>yes</enabled>
-      </startupnotify>
-    </action>
-  </item>
-  <item label="Thunar">
-    <action name="Execute">
-      <command>Thunar</command>
+      <command>pcmanfm</command>
       <startupnotify>
         <enabled>yes</enabled>
       </startupnotify>
@@ -88,9 +80,9 @@
       </startupnotify>
     </action>
   </item>
-  <item label="Inkscape">
+  <item label="MyPaint">
     <action name="Execute">
-      <command>inkscape</command>
+      <command>mypaint</command>
       <startupnotify>
         <enabled>yes</enabled>
       </startupnotify>
