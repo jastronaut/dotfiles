@@ -1,5 +1,8 @@
+#
+# jastronaut's .zshrc
+
 # Lines configured by zsh-newuser-install
-HISTFILE=~/.config/.histfile
+HISTFILE=~/.config/zsh/.histfile
 HISTSIZE=100
 SAVEHIST=100
 bindkey -e
@@ -12,13 +15,16 @@ compinit
 # End of lines added by compinstall
 
 # Set up the prompt
-
 autoload -Uz promptinit
 autoload -U colors && colors
 promptinit
 PROMPT='%F{red}%~%f
 » '
-# RPROMPT='%T %W'
+
+function texx()
+{
+	pdflatex $1.tex && bibtex $1.aux && pdflatex $1.tex
+}
 
 # tab stuff
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
@@ -33,25 +39,27 @@ fi
 setopt auto_cd
 
 # aliases
-alias python=python3
+#alias python=python3
 alias forts="fortune -s"
 alias la="ls -a"
 alias batt="acpi -b"
 alias svim="sudo -E vim"
 alias fungeon='cd /run/media/naut/SHITDUNGEON'
 alias ':q'='bye'
-
+alias con='nmtui'
+alias grep='grep --color=always'
 ## pacman aliases
-alias amen='sudo pacman -Syu'
-alias pacinfo='pacman -Qi'
-alias pacsearch='pacman -Ss'
-alias pacorphans='pacman -Qtdq'
-alias pacinst='sudo pacman -S'
-alias pacrm='sudo pacman -R'
+alias amen='sudo pacman --color=always -Syu'
+alias pacinfo='pacman --color=always -Qi'
+alias pacsearch='pacman --color=always -Ss'
+alias pacorphans='pacman --color=always -Qtdq'
+alias pacinst='sudo pacman --color=always -S'
+alias pacrm='sudo pacman --color=always -R'
 
 # path stuff
 export PATH=/home/naut/bin:$PATH
 
+# get the keys working correctly
 typeset -A key
 
 key[Home]=${terminfo[khome]}
