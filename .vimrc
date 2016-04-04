@@ -6,7 +6,7 @@ execute pathogen#infect()
 
 " color the things
 set background=dark
-colorscheme hybrid
+colorscheme lucius
 let colorspace=256
 
 " useful airline
@@ -32,5 +32,15 @@ set number
 set incsearch
 set mouse=a
 set noswapfile
+let g:UltiSnipsExpandTrigger="<F9>"
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+map <C-e> :NERDTreeToggle<CR>
+
+autocmd BufWritePre * :%s/\s\+$//e
+hi Normal ctermbg=none
 
 set modeline
+iabbrev .// </<C-X><C-O>
+imap jj <Esc>
