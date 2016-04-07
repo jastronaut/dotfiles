@@ -1,6 +1,6 @@
 ! jastronauts .Xresources
 
-! fonts 
+! fonts
 !URxvt.font: xft:Inconsolata for Powerline:size=18
 URxvt.font: xft:Fantasque Sans Mono:size=17
 URxvt.letterSpace: 0
@@ -19,9 +19,9 @@ URxvt.internalBorder: 35
 URxvt.externalBorder: 0
 !URxvt*inheritPixmap:    false
 
-dzen2.font:     xft:Fantasque Sans Mono:size=17 
-dzen2.foreground: #87b1c1
-dzen2.background: #000000
+dzen2.font: Fantasque Sans Mono:size=17
+dzen2.foreground: #e8e6df
+dzen2.background: #2d2d2d
 
 #define COLOR0 #142014
 #define COLOR1 #4ba07e
