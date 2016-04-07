@@ -55,7 +55,7 @@ printBattery() { # battery percentage
 
 mpd() { # based on neeasade's function
 	cur_song="$(basename "$(mpc current -f "%artist% - %title%")" | cut -c1-50 )"
-
+	cur_album="$(mpc current -f "%album%")"
 	if [ -z "$cur_song" ];
 	then echo "Stopped"
 	else
@@ -64,7 +64,7 @@ mpd() { # based on neeasade's function
 			toggle="${AC}mpc play${AB}play${AE}"
 		prev="${AC}mpc prev${AB}${ICO_PREV}${AE}"
 		next="${AC}mpc next${AB}${ICO_NEXT}${AE}"
-		echo "$cur_song  %{F$LABEL}$prev $toggle $next%{F-}"
+		echo "${AC}notify-send $cur_album ${AB}$cur_song${AE}  %{F$LABEL}$prev $toggle $next%{F-}"
 	fi
 }
 
