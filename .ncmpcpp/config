@@ -5,7 +5,7 @@
 # directories
 ncmpcpp_directory = "~/.ncmpcpp"
 lyrics_directory = ~/.lyrics
-mpd_music_dir = "~/Music"
+mpd_music_dir = "~/music"
 mpd_crossfade_time = 5
 
 # visualizer
@@ -94,10 +94,8 @@ song_status_format = " $2%a $4⟫$3⟫ $8%t $4⟫$3⟫ $5%b "
 #browser_sort_format = {%a - }{%t}|{%f} {(%l)}
 #
 ##
-## Note: Below variables are for alternative version of user's 
-interface.
-## Their syntax supports all tags and colors listed above plus some 
-extra
+## Note: Below variables are for alternative version of user's interface.
+## Their syntax supports all tags and colors listed above plus some extra
 ## markers used for text attributes. They are followed by character '$'.
 ## After that you can put:
 ##
@@ -144,8 +142,7 @@ now_playing_suffix = "{$b $2♥♥♥$/b}"
 ##
 ## - color is optional (if you want the default one, type [])
 ##
-## Note: You can give a column additional attributes by putting 
-appropriate
+## Note: You can give a column additional attributes by putting appropriate
 ## character after displayed tag character. Available attributes are:
 ##
 ## - r - column will be right aligned
@@ -253,8 +250,7 @@ allow_for_physical_item_deletion = no
 ## - "screen1,...,screenN" - switch between given sequence of screens.
 ##
 ## Screens available for use: help, playlist, browser, search_engine,
-## media_library, playlist_editor, tag_editor, outputs, visualizer, 
-clock.
+## media_library, playlist_editor, tag_editor, outputs, visualizer, clock.
 ##
 #screen_switcher_mode = playlist, browser
 #
