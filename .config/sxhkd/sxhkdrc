@@ -17,10 +17,10 @@ super + b
 	subl3
 
 super + F1
-	exec xbacklight -1
+	xbacklight -1
 
 super + F2
-	exec xbacklight +1
+	xbacklight +1
 
 super + F10
 	maim ~/pictures/screens/$(date +%F-%T).png  && ((echo congrats; echo "~ screenshot taken ~") | dzen2 -p 2 -w 300 -x 1700 -y 50 -u -ta c -sa c -l 2 -e onstart=uncollapse)
@@ -35,7 +35,7 @@ XF86AudioLowerVolume
 	amixer -q set Master 5%- unmute
 
 super + XF86AudioLowerVolume
-	xinput disable 15 && xinput enable 15 && ((echo congrats; echo "~ touch reconfigured ~") | dzen2 -p 2 -w 300 -x 1700 -y 50 -u -ta c -sa c -l 2 -e onstart=uncollapse)
+	xinput disable 12 && xinput enable 12 && ((echo congrats; echo "~ touch reconfigured ~") | dzen2 -p 2 -w 300 -x 1700 -y 50 -u -ta c -sa c -l 2 -e onstart=uncollapse)
 
 super + l
 	lock2
