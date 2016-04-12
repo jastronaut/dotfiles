@@ -79,13 +79,13 @@ desk() { # get active workspace
 	esac
 }
 
-getBrightness() { # get brightness level
-	lvl="$(xbacklight -get | cut -c1-3)"
-	echo -e "%{F$LABEL}LUM%{F-} $lvl"
-}
+#getBrightness() { # get brightness level
+#	lvl="$(xbacklight -get | cut -c1-3)"
+#	echo -e "%{F$LABEL}LUM%{F-} $lvl"
+#}
 
 # print out the stuff in the grossest manner possible
 while :; do
-	echo -e "%{l}  $(desk)   $(mpd)%{c}$(printDate)  $(printClock)%{r} $(launchKeyboard)  $(printVolume)  $(getBrightness)  $(printBattery)  "
+	echo -e "%{l}  $(desk)   $(mpd)%{c}$(printDate)  $(printClock)%{r} $(launchKeyboard)  $(printVolume)  $(printBattery)  "
 	sleep 1
 done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT" -f "$ICO_FONT" -u 4px -F "$FG" -B "$BG" -p | bash
