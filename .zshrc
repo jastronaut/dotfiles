@@ -57,7 +57,8 @@ alias pacinst='sudo pacman --color=always -S'
 alias pacrm='sudo pacman --color=always -R'
 
 # path stuff
-export PATH=/home/naut/bin:$PATH
+export PATH=~/bin:$PATH
+export PATH=~/.gem/ruby/2.3.0/bin:$PATH
 
 # get the keys working correctly
 typeset -A key
