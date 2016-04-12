@@ -26,10 +26,13 @@ bspc config urgent_border_color '#D08770'
 bspc monitor -d I II III IV V VI VII VIII IX X
 
 bspc rule -a Onboard state=floating flag=sticky
+bspc rule -a Gimp state=floating
 bspc rule -a Screenkey manage=off
 
+xsetroot -cursor_name left_ptr
 mpd
 feh --bg-scale ~/pictures/wall.jpg
+xrdb ~/.Xresourcex
 compton --backend glx --paint-on-overlay --vsync opengl-swc --config ~/.config/candy.conf -b
-dropbox &
-panel &
+#dropbox &
+./bin/panel &
