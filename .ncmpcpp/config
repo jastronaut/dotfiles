@@ -4,7 +4,7 @@
 
 # directories
 ncmpcpp_directory = "~/.ncmpcpp"
-lyrics_directory = ~/.lyrics
+lyrics_directory = "~/.lyrics"
 mpd_music_dir = "~/music"
 mpd_crossfade_time = 5
 
@@ -16,7 +16,7 @@ visualizer_sync_interval = "25"
 visualizer_in_stereo = "yes"
 #visualizer_type = "wave" (spectrum/wave)
 #visualizer_look = "∙▋"
-#visualizer_look="♥♥"
+visualizer_look="♥♥"
 visualizer_color = "red yellow green cyan magenta"
 
 # delays
