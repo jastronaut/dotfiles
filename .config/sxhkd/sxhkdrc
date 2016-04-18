@@ -22,8 +22,12 @@ super + F1
 super + F2
 	xbacklight +1
 
-super + F10
-	maim ~/pictures/screens/$(date +%F-%T).png  && ((echo congrats; echo "~ screenshot taken ~") | dzen2 -p 2 -w 300 -x 1700 -y 50 -u -ta c -sa c -l 2 -e onstart=uncollapse)
+super + F4
+	mpc toggle
+
+super + @XF86AudioRaiseVolume
+	maim ~/pictures/screens/$(date +%F-%T).png; \
+	 ((echo congrats; echo "~ screenshot taken ~") | dzen2 -p 2 -w 300 -x 1700 -y 50 -u -ta c -sa c -l 2 -e onstart=uncollapse);
 
 super + F8
 	chromium --force-device-scale-factor=1.75
@@ -34,8 +38,10 @@ XF86AudioRaiseVolume
 XF86AudioLowerVolume
 	amixer -q set Master 5%- unmute
 
-super + XF86AudioLowerVolume
-	xinput disable 12 && xinput enable 12 && ((echo congrats; echo "~ touch reconfigured ~") | dzen2 -p 2 -w 300 -x 1700 -y 50 -u -ta c -sa c -l 2 -e onstart=uncollapse)
+super + @XF86AudioLowerVolume
+	xinput disable 15; \
+	xinput enable 15; \
+	((echo congrats; echo "~ touch reconfigured ~") | dzen2 -p 2 -w 300 -x 1700 -y 50 -u -ta c -sa c -l 2 -e onstart=uncollapse);
 
 super + l
 	lock2
@@ -54,7 +60,9 @@ super + Escape
 
 # quit bspwm normally
 alt + shift + e
-	mpc pause && killall mpd && bspc quit
+	mpc pause; \
+	killall mpd; \
+	bspc quit
 
 # close and kill
 alt + F4
