@@ -22,6 +22,7 @@ bspc config presel_border_color '#b5bd68'
 bspc config normal_sticky_border_color '#515151'
 bspc config focused_sticky_border_color '#87b1c1'
 bspc config urgent_border_color '#D08770'
+bspc config presel_feedback_color '#87b1c1'
 
 bspc monitor -d I II III IV V VI VII VIII IX X
 
@@ -29,10 +30,13 @@ bspc rule -a Onboard state=floating flag=sticky
 bspc rule -a Gimp state=floating
 bspc rule -a Screenkey manage=off
 
+xrdb ~/.Xresources
 xsetroot -cursor_name left_ptr
+xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
 mpd
-feh --bg-scale ~/pictures/wall.jpg
-xrdb ~/.Xresourcex
+mpc load all
+mpc pause
+feh --bg-scale ~/pictures/wall.png
 compton --backend glx --paint-on-overlay --vsync opengl-swc --config ~/.config/candy.conf -b
-#dropbox &
+dropbox &
 ./bin/panel &
