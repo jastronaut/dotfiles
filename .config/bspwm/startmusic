@@ -1,0 +1,17 @@
+#!/bin/sh
+#
+# toggle mpd i guess
+#
+
+mpdID=$(pgrep mpd)
+# i have no idea what i am doing
+if [ -z "$mpdID" ]; then
+	mpd; \
+	mpc load all; \
+	mpc random on; \
+	mpc play -q; \
+	mpc pause -q; \
+else
+	mpc pause -q; \
+	killall mpd
+fi
