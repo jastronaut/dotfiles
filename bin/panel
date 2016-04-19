@@ -6,23 +6,23 @@
 # get config
 . ~/bin/panel_config
 
-printClock()
+function printClock()
 {
 	date '+%H:%M'
 }
 
-printDate()
+function printDate()
 {
 	date '+%a %b %d'
 	echo "$date"
 }
 
-launchKeyboard()
+function launchKeyboard()
 {
 	echo -e "${AC}onboard${AB} $KEYB ${AE}"
 }
 
-printVolume()
+function printVolume()
 {
 	vol=$(amixer get Master | grep % | sed -n 1p | awk -F '[' '{print $2}' | awk -F ']' '{print $1}')
 
@@ -33,7 +33,7 @@ printVolume()
 	fi
 }
 
-printBattery()
+function printBattery()
 {
 	bat=$(acpi -b | grep -P -o '[0-9]+(?=%)')
 	ch_state=$(acpi -b | cut -c12-19)
@@ -57,7 +57,7 @@ printBattery()
 	fi
 }
 
-mpd()
+function mpd()
 {
 	cur_song="$(basename "$(mpc current -f "%artist% - %title%")" | cut -c1-50 )"
 	cur_album="$(mpc current -f "%album%")"
@@ -74,7 +74,7 @@ mpd()
 }
 
 # change desktops and show current desktop
-desk()
+function desk()
 {
 	cur=$(xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}')
 	case $cur in
