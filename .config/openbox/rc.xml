@@ -32,7 +32,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-	  <name>simple</name>
+    <name>oomox-mizudori-light.sh</name>
     <titleLayout>IMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -97,8 +97,8 @@
     <names>
       <name>www</name>
       <name>text</name>
-	  <name>term</name>
-	  <name>other</name>
+      <name>term</name>
+      <name>other</name>
     </names>
     <popupTime>875</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
@@ -293,7 +293,7 @@
         <command>urxvt</command>
       </action>
     </keybind>
-    <keybind key="W-F10">
+    <keybind key="W-XF86AudioRaiseVolume">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
@@ -340,7 +340,7 @@
     </keybind>
     <keybind key="W-l">
       <action name="Execute">
-		  <command>lock2</command>
+        <command>lock2</command>
       </action>
     </keybind>
     <keybind key="C-A-r">

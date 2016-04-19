@@ -3,7 +3,7 @@
 #
 
 mpd
-feh --bg-scale ~/pictures/wall_ob.jpg &
+feh --bg-scale ~/pictures/wall_nob.jpg &
 compton --backend glx --paint-on-overlay --vsync opengl-swc --config ~/.config/candy.conf -b
 dropbox &
-ob_panel &
+panel &
