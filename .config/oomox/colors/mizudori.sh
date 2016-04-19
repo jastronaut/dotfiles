@@ -1,0 +1,11 @@
+NAME="mizudori-light"
+BG=515151
+FG=ffffff
+MENU_BG=2d2d2d
+MENU_FG=ffffff
+SEL_BG=87b1c1
+SEL_FG=ffffff
+TXT_BG=515151
+TXT_FG=ffffff
+BTN_BG=87b1C1
+BTN_FG=ffffff
