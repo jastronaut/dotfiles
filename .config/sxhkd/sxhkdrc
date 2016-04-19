@@ -60,8 +60,8 @@ super + Escape
 
 # quit bspwm normally
 alt + shift + e
-	mpc pause; \
-	killall mpd; \
+	~/.config/bspwm/startmusic; \
+	~/.config/bspwm/startpanel; \
 	bspc quit
 
 # close and kill
