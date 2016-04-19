@@ -5,7 +5,6 @@
 #
 
 # fonts
-#FONT="PIXELA CYR:size=24"
 FONT="Fantasque Sans Mono:size=16"
 ICO_FONT="FontAwesome:size=17"
 
@@ -20,9 +19,6 @@ RED="#bf616a"
 ORANGE="#d3824a"
 YEL="#ebcb8b"
 GRE="#a1b599"
-BLUE1="#8eb0b2"
-PURPLE="#b48ead"
-#ACCENT="#e094a1"
 PINK="#c59799"
 
 # geometry
@@ -59,11 +55,9 @@ ICON_TIME='\uf017'
 FULL='\uf004'
 EMPTY='\uf08a'
 KEYB='\uf11c'
-
 ## clickable
 ICO_PREV='«'
 ICO_NEXT='»'
-
 # workspaces
 WS1='1'
 WS2='2'
