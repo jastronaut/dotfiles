@@ -1,4 +1,4 @@
-NAME="pinky-light"
+NAME="momoiro-light"
 BG=FFFFFF
 FG=515151
 MENU_BG=515151

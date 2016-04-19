@@ -1,4 +1,4 @@
-ME="pinky"
+ME="momoiro"
 BG=515151
 FG=E8E6DF
 MENU_BG=2D2D2D
