@@ -61,9 +61,7 @@ alias pacsearchloc='pacaur -Qs'
 alias pacorphans='pacaur -Qtdq'
 
 # path stuff
-export PATH=~/bin:$PATH
-export PATH=~/bin/colorscripts:$PATH
-export PATH=~/bin/other:$PATH
+export PATH=~/bin:~/bin/colorscripts:~/bin/other:~/.config/bspwm:$PATH
 export PATH=~/.gem/ruby/2.3.0/bin:$PATH
 
 # get the keys working correctly
