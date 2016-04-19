@@ -8,7 +8,7 @@ sxhkd &
 
 bspc config border_width        4
 bspc config window_gap         18
-
+bspc config top_padding 		37
 bspc config split_ratio         0.52
 bspc config borderless_monocle  true
 bspc config gapless_monocle     true
@@ -33,10 +33,7 @@ bspc rule -a Screenkey manage=off
 xrdb ~/.Xresources
 xsetroot -cursor_name left_ptr
 xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
-killall mpd
-mpd
-mpc load all
-mpc pause
+~/.config/bspwm/startmusic
 feh --bg-scale ~/pictures/wall.png
 compton --backend glx --paint-on-overlay --vsync opengl-swc --config ~/.config/candy.conf -b
 dropbox &
