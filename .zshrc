@@ -8,7 +8,7 @@ SAVEHIST=100
 bindkey -e
 # End of lines configured by zsh-newuser-install
 # The following lines were added by compinstall
-zstyle :compinstall filename '/home/naut/.zshrc'
+zstyle :compinstall filename '/home/$USER/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -36,10 +36,10 @@ function sym()
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 
 if [[ -x "`whence -p dircolors`" ]]; then
-  eval `dircolors`
-  alias ls='ls -F --color=auto'
+	eval `dircolors`
+	alias ls='ls -F --color=auto'
 else
-  alias ls='ls -F'
+	alias ls='ls -F'
 fi
 
 setopt auto_cd
@@ -56,11 +56,14 @@ alias grep='grep --color=always'
 ## pacman aliases
 alias amen='pacaur -Syu'
 alias pacinfo='pacaur -Qi'
-alias pacsearch='pacaur -Ss'
+alias pacsearchall='pacaur -Ss'
+alias pacsearchloc='pacaur -Qs'
 alias pacorphans='pacaur -Qtdq'
 
 # path stuff
 export PATH=~/bin:$PATH
+export PATH=~/bin/colorscripts:$PATH
+export PATH=~/bin/other:$PATH
 export PATH=~/.gem/ruby/2.3.0/bin:$PATH
 
 # get the keys working correctly
@@ -86,12 +89,14 @@ key[Right]=${terminfo[kcuf1]}
 [[ -n "${key[Left]}"     ]]  && bindkey  "${key[Left]}"    backward-char
 [[ -n "${key[Right]}"    ]]  && bindkey  "${key[Right]}"   forward-char
 
-function zle-line-init () {
-    echoti smkx
+function zle-line-init()
+{
+	echoti smkx
 
 }
-function zle-line-finish () {
-    echoti rmkx
+function zle-line-finish()
+{
+	echoti rmkx
 
 }
 zle -N zle-line-init
