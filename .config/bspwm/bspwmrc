@@ -33,10 +33,11 @@ bspc rule -a Screenkey manage=off
 xrdb ~/.Xresources
 xsetroot -cursor_name left_ptr
 xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+killall mpd
 mpd
 mpc load all
 mpc pause
 feh --bg-scale ~/pictures/wall.png
 compton --backend glx --paint-on-overlay --vsync opengl-swc --config ~/.config/candy.conf -b
 dropbox &
-./bin/panel &
+panel &
