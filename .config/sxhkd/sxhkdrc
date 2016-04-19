@@ -27,10 +27,10 @@ super + F4
 
 super + @XF86AudioRaiseVolume
 	maim ~/pictures/screens/$(date +%F-%T).png; \
-	 ((echo congrats; echo "~ screenshot taken ~") | dzen2 -p 2 -w 300 -x 1700 -y 50 -u -ta c -sa c -l 2 -e onstart=uncollapse);
+	((echo congrats; echo "~ screenshot taken ~") | dzen2 -p 2 -w 300 -x 1700 -y 50 -u -ta c -sa c -l 2 -e onstart=uncollapse);
 
 super + F8
-	chromium --force-device-scale-factor=1.75
+	chromium --force-device-scale-factor=1.60
 
 XF86AudioRaiseVolume
 	amixer -q set Master 5%+ unmute
@@ -145,6 +145,9 @@ super + ctrl + space
 # cancel the preselection for the focused desktop
 ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
+
+alt + shift + {semicolon, period}
+	 bspc node @/ -R {90,720}
 
 #
 # resize tiled/floating
