@@ -1,20 +1,14 @@
 #!/bin/sh
 #
-# lemonbar config by jastronaut
+# lemonbar by jastronaut
 #
 
-# get config
+# get settings
 . ~/bin/panel_config
-
-function printClock()
-{
-	date '+%H:%M'
-}
 
 function printDate()
 {
-	date '+%a %b %d'
-	echo "$date"
+	date '+%a %b %d  %H:%M'
 }
 
 function launchKeyboard()
@@ -40,20 +34,18 @@ function printBattery()
 	ch=""
 	if [[ $ch_state = "Charging" ]]
 	then ch='*'
-	else
-		ch=""
 	fi
-	# heart indicators bc i'm lame!
-	if [ $bat -le 100 ] && [ $bat -ge 80 ]
-	then echo -e "%{F$LABEL}BAT  %{F-}%{F$PINK}$FULL $FULL $FULL $FULL $FULL%{F-}%{F$GRE} $bat%%{F-} %{F$YEL}$ch%{F-}"
-	elif [ $bat -lt 80 ] && [ $bat -ge 60 ]
-	then echo -e "%{F$LABEL}BAT %{F-}%{F$PINK}$FULL $FULL $FULL $FULL%{F-} $EMPTY%{F$GRE}  $bat%%{F-} %{F$YEL}$ch%{F-}"
-	elif [ $bat -lt 60 ] && [ $bat -ge 40 ]
-	then echo -e "%{F$LABEL}BAT %{F-}%{F$PINK}$FULL $FULL $FULL%{F-} $EMPTY $EMPTY%{F$GRE} $bat%%{F-} %{F$YEL}$ch%{F-}"
-	elif [ $bat -lt 40 ] && [ $bat -ge 20 ]
-	then echo -e "%{F$LABEL}BAT %{F-}%{F$PINK}$FULL $FULL%{F-} $EMPTY $EMPTY $EMPTY%{F$GRE} $bat%%{F-} %{F$YEL}$ch%{F-}"
+
+	if [ $bat -le 100 ] && [ $bat -ge 80 ] then
+		echo -e "%{F$LABEL}BAT  %{F-}%{F$PINK}$FULL $FULL $FULL $FULL $FULL%{F-}%{F$GRE} $bat%%{F-}%{F$YEL}$ch%{F-}"
+	elif [ $bat -lt 80 ] && [ $bat -ge 60 ] then
+		echo -e "%{F$LABEL}BAT %{F-}%{F$PINK}$FULL $FULL $FULL $FULL%{F-} $EMPTY%{F$GRE}  $bat%%{F-}%{F$YEL}$ch%{F-}"
+	elif [ $bat -lt 60 ] && [ $bat -ge 40 ] then
+		echo -e "%{F$LABEL}BAT %{F-}%{F$PINK}$FULL $FULL $FULL%{F-} $EMPTY $EMPTY%{F$GRE} $bat%%{F-}%{F$YEL}$ch%{F-}"
+	elif [ $bat -lt 40 ] && [ $bat -ge 20 ] then
+		echo -e "%{F$LABEL}BAT %{F-}%{F$PINK}$FULL $FULL%{F-} $EMPTY $EMPTY $EMPTY%{F$GRE} $bat%%{F-}%{F$YEL}$ch%{F-}"
 	else
-		echo -e "%{F$LABEL}BAT %{F-} %{F$PINK}$FULL%{F-} $EMPTY $EMPTY $EMPTY $EMPTY%{F$PINK} $bat%%{F-} %{F$YEL}$ch%{F-}"
+		echo -e "%{F$LABEL}BAT %{F-} %{F$PINK}$FULL%{F-} $EMPTY $EMPTY $EMPTY $EMPTY%{F$PINK} $bat%%{F-}%{F$YEL}$ch%{F-}"
 	fi
 }
 
@@ -86,13 +78,8 @@ function desk()
 	esac
 }
 
-#getBrightness() { # get brightness level
-#	lvl="$(xbacklight -get | cut -c1-3)"
-#	echo -e "%{F$LABEL}LUM%{F-} $lvl"
-#}
-
 # print out the stuff in the grossest manner possible
 while :; do
-	echo -e "%{l}  $(desk)   $(mpd)%{c}$(printDate)  $(printClock)%{r}$(launchKeyboard)  $(printVolume)  $(printBattery)  "
+	echo -e "%{l}  $(desk)   $(mpd)%{c}$(printDate)%{r}$(launchKeyboard)  $(printVolume)  $(printBattery)  "
 	sleep 1
 done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT" -f "$ICO_FONT" -u 4px -F "$FG" -B "$BG" -p | bash
