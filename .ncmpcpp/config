@@ -4,17 +4,16 @@
 
 # directories
 ncmpcpp_directory = "~/.ncmpcpp"
-lyrics_directory = "~/.lyrics"
+lyrics_directory = "~/music/lyrics"
 mpd_music_dir = "~/music"
 mpd_crossfade_time = 5
 
 # visualizer
 visualizer_fifo_path = "/tmp/mpd.fifo"
 visualizer_output_name = "my_fifo"
-
 visualizer_sync_interval = "25"
 visualizer_in_stereo = "yes"
-#visualizer_type = "wave" (spectrum/wave)
+visualizer_type = "wave" (spectrum/wave)
 #visualizer_look = "∙▋"
 visualizer_look="♥♥"
 visualizer_color = "red yellow green cyan magenta"
@@ -162,13 +161,12 @@ now_playing_suffix = "{$b $2♥♥♥$/b}"
 ##   not available.
 ##
 #
-#song_columns_list_format = (20)[]{a} (6f)[green]{NE} 
+#song_columns_list_format = (20)[]{a} (6f)[green]{NE}
 (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
 #
 ##### various settings #####
 
-#execute_on_song_change = "notify-send "$(mpc current -f "%artist% - 
-%title%")" | cut -c1-40"
+#execute_on_song_change = "notify-send "$(mpc current -f "%artist% - %title%")" | cut -c1-40"
 
 playlist_display_mode = classic
 
@@ -184,7 +182,7 @@ discard_colors_if_item_is_selected = no
 #
 seek_time = 4
 #
-volume_change_step = 3
+volume_change_step = 5
 #
 autocenter_mode = yes
 #
@@ -294,7 +292,7 @@ mouse_support = yes
 
 search_engine_default_search_mode = 2
 
-external_editor = "/usr/bin/nano"
+external_editor = "/usr/bin/vim"
 
 use_console_editor = yes
 #
@@ -314,5 +312,5 @@ main_window_highlight_color = "red"
 statusbar_color = "white"
 active_column_color = "yellow"
 
-window_border_color = "white"
-active_window_border = "white"
+#window_border_color = "black"
+#active_window_border = "black"
