@@ -11,6 +11,7 @@ URxvt.matcher.button: 1
 
 ! copy and pasta
 URxvt.perl-ext-common: default,clipboard
+!,tabbed
 
 ! misc stuff
 URxvt.iso14755: false
@@ -40,26 +41,9 @@ dzen2.background: #2d2d2d
 #define COLOR14 #d7dce0
 #define COLOR15 #e0dbd8
 
-#define base00 #2d2d2d
-#define base01 #393939
-#define base02 #515151
-#define base03 #747369
-#define base04 #a09f93
-#define base05 #d3d0c8
-#define base06 #e8e6df
-#define base07 #f2f0ec
-#define base08 #f2777a
-#define base09 #f99157
-#define base0A #ffcc66
-#define base0B #99cc99
-#define base0C #66cccc
-#define base0D #6699cc
-#define base0E #cc99cc
-#define base0F #d27b53
-
-*.foreground:   base05
-*.background:   base00
-*.cursorColor:  base05
+*.foreground:   #d3d0c8
+*.background:   #2d2d2d
+*.cursorColor:  #d3d0c8
 
 *.color0:       COLOR0
 *.color1:       COLOR1
@@ -78,10 +62,3 @@ dzen2.background: #2d2d2d
 *.color13:     	COLOR13
 *.color14:      COLOR14
 *.color15:      COLOR15
-
-*.color16:      base09
-*.color17:      base0F
-*.color18:      base01
-*.color19:      base02
-*.color20:      base04
-*.color21:      base06
