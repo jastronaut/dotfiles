@@ -1,18 +1,18 @@
 # dotfiles
 
-![fetch](http://i.imgur.com/Lj9kHP5.png)
-![colors](http://i.imgur.com/o1c4WRf.png)
-[gtk](http://i.imgur.com/yRQ8R4S.png)
+![fetch](http://i.imgur.com/BdL71ud.png)
+![colors](http://i.imgur.com/SNhf4cb.png)
+[gtk (tw: anime)](http://i.imgur.com/yRQ8R4S.png)
 
 ## tools
 
 - **distro**: arch linux[_](https://www.archlinux.org/)
 - **window manager**: bspwm[_](https://github.com/baskerville/bspwm)
 - **GTK theme**: oomox[_](https://github.com/actionless/oomox)
-- **icon theme**: numix folders[_](https://github.com/numixproject/numix-folders)
+- **icon theme**: any color you like[_](http://pobtott.deviantart.com/art/Any-Color-You-Like-175624910)
 
 ### software
-- **bar**: lemonbar w/xtf[_](https://github.com/krypt-n/bar)
+- **bar**: lemonbar with xtf[_](https://github.com/krypt-n/bar)
 - **launcher**: dmenu2[_](https://bitbucket.org/melek/dmenu2)
 - **terminal**: urxvt[_](http://software.schmorp.de/pkg/rxvt-unicode.html)
 
