@@ -14,8 +14,8 @@ visualizer_output_name = "my_fifo"
 visualizer_sync_interval = "25"
 visualizer_in_stereo = "yes"
 visualizer_type = "wave" (spectrum/wave)
-#visualizer_look = "∙▋"
 visualizer_look="♥♥"
+#visualizer_look="▋▋"
 visualizer_color = "red yellow green cyan magenta"
 
 # delays
@@ -73,24 +73,10 @@ message_delay_time = 3
 ## Note: colors can be nested.
 ##
 #
-
-song_list_format = " $3%a $5//$8 %t"
-song_status_format = " $2%a $4⟫$3⟫ $8%t $4⟫$3⟫ $5%b "
-
-#(Kori list below)
-#song_list_format = "$2%t$7 $1by$6 %a$1 on %b$9"
-#
-#song_status_format = {{%a{ "%b"{ (%y)}} - }{%t}}|{%f}
-#song_status_format = {$8%t}{$8 "%b"}|{$8 "%a"}$8
-#
-#song_library_format = {%n - }{%t}|{%f}
-#
-#tag_editor_album_format = {(%y) }%b
-#
-
-#browser_sort_mode = name
-#
-#browser_sort_format = {%a - }{%t}|{%f} {(%l)}
+autocenter_mode = "no"
+song_columns_list_format = "$L(9)[white]{l} (20)[red]{a}  (30)[green]{b}$R(20)[cyan]{t}"
+song_status_format = " $2%a $4>$3> $8%t $4>$3> $5%b "
+song_list_format = " $0$5$5%l$0$5 $8|$7 $7%a$7 $8|$7 $6%t$8 $R $8%b$8"
 #
 ##
 ## Note: Below variables are for alternative version of user's interface.
@@ -110,8 +96,10 @@ song_status_format = " $2%a $4⟫$3⟫ $8%t $4⟫$3⟫ $5%b "
 ##
 #
 #
-now_playing_prefix = "{$b $2♥♥♥$/b}"
-now_playing_suffix = "{$b $2♥♥♥$/b}"
+#now_playing_prefix = "{$b $2♥$/b}"
+#now_playing_suffix = "{$b $2♥$/b}"
+now_playing_prefix = "{$b}"
+now_playing_suffix = "{$/b}"
 #
 #browser_playlist_prefix = "$2playlist$9 "
 #
@@ -165,10 +153,9 @@ now_playing_suffix = "{$b $2♥♥♥$/b}"
 (50)[white]{t|f:Title} (20)[cyan]{b} (7f)[magenta]{l}
 #
 ##### various settings #####
+execute_on_song_change = "notify-send -t 5 -u normal "$(mpc current -f %title%)" "$(mpc current -f '%artist% ~ %album% \[%date%\]')""
 
-#execute_on_song_change = "notify-send "$(mpc current -f "%artist% - %title%")" | cut -c1-40"
-
-playlist_display_mode = classic
+playlist_display_mode = columns
 
 browser_display_mode = columns
 
@@ -176,7 +163,7 @@ browser_display_mode = columns
 #
 #playlist_editor_display_mode = columns
 #
-discard_colors_if_item_is_selected = no
+discard_colors_if_item_is_selected = yes
 #
 #incremental_seeking = yes
 #
@@ -184,10 +171,10 @@ seek_time = 4
 #
 volume_change_step = 5
 #
-autocenter_mode = yes
 #
 #centered_cursor = no
-
+#progressbar_look = "─╼ "
+#progressbar_look = "── "
 progressbar_look = "▀▀ "
 progressbar_color = "black"
 progressbar_elapsed_color = "green"
@@ -199,7 +186,7 @@ progressbar_boldness = no
 user_interface = alternative
 alternative_header_first_line_format  = "{$2%a$9} {$5%t$9} (°◡°♡).:｡ "
 alternative_header_second_line_format = "ʕ•͡-•ʔ  {$3%b$9} {$4(%y)$9}"
-alternative_ui_separator_color        = "blue"
+alternative_ui_separator_color        = "black"
 #media_library_primary_tag = artist
 #
 ## Available values: wrapped, normal.
@@ -212,7 +199,7 @@ alternative_ui_separator_color        = "blue"
 #
 #default_tag_editor_pattern = %n - %t
 #
-header_visibility = yes
+header_visibility = no
 #
 statusbar_visibility = no
 #
@@ -226,9 +213,9 @@ statusbar_visibility = no
 #
 #follow_now_playing_lyrics = no
 #
-#fetch_lyrics_for_current_song_in_background = no
+fetch_lyrics_for_current_song_in_background = yes
 #
-#store_lyrics_in_song_dir = no
+store_lyrics_in_song_dir = yes
 #
 #generate_win32_compatible_filenames = yes
 #
@@ -253,7 +240,7 @@ allow_for_physical_item_deletion = no
 #screen_switcher_mode = playlist, browser
 #
 
-startup_screen = "playlist"
+startup_screen = "browser"
 #
 jump_to_now_playing_song_at_start = yes
 #
@@ -280,7 +267,7 @@ mouse_support = yes
 #
 #mouse_list_scroll_whole_page = yes
 #
-#empty_tag_marker = <empty>
+empty_tag_marker = -----
 #
 #tags_separator = " | "
 #
