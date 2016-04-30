@@ -1,9 +1,9 @@
 #
 # openbox autostart by jastronaut
 #
-
+xrdb ~/.Xresources
 mpd
-feh --bg-scale ~/pictures/wall_nob.jpg &
+feh --bg-scale ~/pictures/wall.jpg &
 compton --backend glx --paint-on-overlay --vsync opengl-swc --config ~/.config/candy.conf -b
 dropbox &
-panel &
+ob_panel &
