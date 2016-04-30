@@ -1,1 +1,0 @@
-/home/jas/colors/mizudori-light.sh
