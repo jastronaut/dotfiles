@@ -8,10 +8,10 @@
   </resistance>
   <focus>
     <focusNew>yes</focusNew>
-    <followMouse>no</followMouse>
+    <followMouse>yes</followMouse>
     <focusLast>yes</focusLast>
-    <underMouse>no</underMouse>
-    <focusDelay>200</focusDelay>
+    <underMouse>yes</underMouse>
+    <focusDelay>150</focusDelay>
     <raiseOnFocus>no</raiseOnFocus>
   </focus>
   <placement>
@@ -32,7 +32,7 @@
                   'Active' - where the active window is -->
   </placement>
   <theme>
-    <name>oomox-mizudori-light.sh</name>
+    <name>oomox-momoiro.sh</name>
     <titleLayout>IMC</titleLayout>
     <!--
       available characters are NDSLIMC, each can occur at most once.
@@ -54,13 +54,13 @@
     </font>
     <font place="InactiveWindow">
       <name>SFNS Display</name>
-      <size>13</size>
+      <size>16</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
     <font place="MenuHeader">
       <name>SFNS Display</name>
-      <size>14</size>
+      <size>16</size>
       <weight>Normal</weight>
       <slant>Normal</slant>
     </font>
@@ -72,13 +72,13 @@
     </font>
     <font place="ActiveOnScreenDisplay">
       <name>SFNS Display</name>
-      <size>14</size>
+      <size>16</size>
       <weight>Bold</weight>
       <slant>Normal</slant>
     </font>
     <font place="InactiveOnScreenDisplay">
       <name>SFNS Display</name>
-      <size>14</size>
+      <size>16</size>
       <weight>Bold</weight>
       <slant>Normal</slant>
     </font>
@@ -95,10 +95,10 @@
     <number>4</number>
     <firstdesk>1</firstdesk>
     <names>
-      <name>www</name>
-      <name>text</name>
-      <name>term</name>
-      <name>other</name>
+      <name>1</name>
+      <name>2</name>
+      <name>3</name>
+      <name>4</name>
     </names>
     <popupTime>875</popupTime>
     <!-- The number of milliseconds to show the popup for when switching
@@ -125,22 +125,20 @@
      Many programs reserve space automatically, but you can use this in other
      cases. -->
   <margins>
-    <top>20</top>
-    <bottom>10</bottom>
-    <Left>30</Left>
-    <Right>30</Right>
-    <left>10</left>
-    <right>10</right>
+    <top>0</top>
+    <bottom>60</bottom>
+    <left>18</left>
+    <right>18</right>
   </margins>
   <dock>
-    <position>TopLeft</position>
+    <position>Floating</position>
     <!-- (Top|Bottom)(Left|Right|)|Top|Bottom|Left|Right|Floating -->
     <floatingX>0</floatingX>
     <floatingY>0</floatingY>
     <noStrut>no</noStrut>
     <stacking>Above</stacking>
     <!-- 'Above', 'Normal', or 'Below' -->
-    <direction>Vertical</direction>
+    <direction>Horizontal</direction>
     <!-- 'Vertical' or 'Horizontal' -->
     <autoHide>no</autoHide>
     <hideDelay>300</hideDelay>
@@ -263,7 +261,7 @@
           <enabled>true</enabled>
           <name>Chromium</name>
         </startupnotify>
-        <command>chromium --force-device-scale-factor=1.75</command>
+        <command>chromium --force-device-scale-factor=1.6</command>
       </action>
     </keybind>
     <keybind key="W-e">
@@ -293,13 +291,13 @@
         <command>urxvt</command>
       </action>
     </keybind>
-    <keybind key="W-XF86AudioRaiseVolume">
+    <keybind key="A-F12">
       <action name="Execute">
         <startupnotify>
           <enabled>true</enabled>
-          <name>scrot</name>
+          <name>screencap</name>
         </startupnotify>
-        <command>scrot -e 'mv $f ~/pictures/screens/'</command>
+        <command>~/.config/openbox/screencap</command>
       </action>
     </keybind>
     <keybind key="W-F1">
@@ -338,11 +336,6 @@
         <command>amixer -q set Master 5%- unmute</command>
       </action>
     </keybind>
-    <keybind key="W-l">
-      <action name="Execute">
-        <command>lock2</command>
-      </action>
-    </keybind>
     <keybind key="C-A-r">
       <action name="Execute">
         <command>openbox --reconfigure</command>
@@ -356,37 +349,42 @@
     <!-- keybindings for tiling -->
     <keybind key="C-A-Right">
       <action name="Execute">
-        <command>rtile.rb --grow-Right</command>
+        <command>ruby ~/bin/rtile.rb --grow-Right</command>
       </action>
     </keybind>
     <keybind key="C-A-Left">
       <action name="Execute">
-        <command>rtile.rb --grow-Left</command>
+        <command>ruby ~/bin/rtile.rb --grow-Left</command>
       </action>
     </keybind>
     <keybind key="C-A-Up">
       <action name="Execute">
-        <command>rtile.rb --grow-up</command>
+        <command>ruby ~/bin/rtile.rb --grow-up</command>
       </action>
     </keybind>
     <keybind key="C-A-Down">
       <action name="Execute">
-        <command>rtile.rb --grow-down</command>
+        <command>ruby ~/bin/rtile.rb --grow-down</command>
       </action>
     </keybind>
     <keybind key="W-S-Right">
       <action name="Execute">
-        <command>rtile.rb --next-monitor</command>
+        <command>ruby ~/bin/rtile.rb --next-monitor</command>
       </action>
     </keybind>
     <keybind key="W-m">
       <action name="Execute">
-        <command>rtile.rb --swap-biggest</command>
+        <command>ruby ~/bin/rtile.rb --swap-biggest</command>
       </action>
     </keybind>
     <keybind key="W-t">
       <action name="Execute">
-        <command>rtile.rb --all-auto</command>
+        <command>ruby ~/bin/rtile.rb --all-auto</command>
+      </action>
+    </keybind>
+    <keybind key="W-A-t">
+      <action name="Execute">
+        <command>killall ruby</command>
       </action>
     </keybind>
   </keyboard>
@@ -432,7 +430,7 @@
         <action name="Move"/>
       </mousebind>
       <mousebind button="Left" action="DoubleClick">
-        <action name="ToggleMaximize"/>
+        <action name="ToggleMaximizeFull"/>
       </mousebind>
       <mousebind button="Up" action="Click">
         <action name="if">
