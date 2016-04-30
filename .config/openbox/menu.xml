@@ -33,7 +33,7 @@
 	</item>
 	<item label="Chromium">
 		<action name="Execute">
-			<command>chromium --force-device-scale-factor=1.75</command>
+			<command>chromium --force-device-scale-factor=1.6</command>
 			<startupnotify>
 				<enabled>yes</enabled>
 			</startupnotify>
