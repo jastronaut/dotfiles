@@ -4,7 +4,7 @@
 ## fonts, colors, dimensions, bspwm stuff, and icons
 #
 
-# fonts
+# fonts -- if the font or size is changed then spacing in main file must also be changed
 FONT="Fantasque Sans Mono:size=16"
 ICO_FONT="FontAwesome:size=17"
 
@@ -18,6 +18,7 @@ RED="#bf616a"
 YEL="#ebcb8b"
 GRE="#a1b599"
 PINK="#c59799"
+ACCCENT="#88aaaa"
 
 # geometry
 PW=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
@@ -43,7 +44,7 @@ KEYB='\uf11c'
 ICO_PREV='«'
 ICO_NEXT='»'
 ## dekstops - change these to icons if desired
-WS1='1'
-WS2='2'
-WS3='3'
-WS4='4'
+# WS1='1'
+# WS2='2'
+# WS3='3'
+# WS4='4'
