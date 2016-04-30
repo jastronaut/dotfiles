@@ -70,10 +70,10 @@ function desk()
 {
 	#number of currently active workspace
 	cur=$( xprop -root _NET_CURRENT_DESKTOP | awk '{print $3}' )
-	
+
 	#incremented by 1, because 0th member in $wss is the whole array(useless)
 	cur=$((cur+1))
-	
+
 	#gives array of all active workspaces' labels
 	wss=$( xprop -root _NET_DESKTOP_NAMES | cut -c34-100 | tr -d '"' | tr -d ',' )
 
@@ -87,20 +87,20 @@ function desk()
 	declare -i n=1
 
 	#Iterates thru $wss array and prints the labels in one line(\c) while indicating the current one
-	for x in $wss; 
+	for x in $wss;
 	do
 		if [ "$cur" == "$n" ]
-	  	  then
-	    	    echo -e "%{U$PINK}%{+u} $x %{-u} \c"
-	  	  else
-	  	  echo -e " $x  \c"
+		then
+			echo -e "${AC}$moveto $x${AB}%{U$ACCCENT}%{+u} $x %{-u} ${AE}\c"
+		else
+			echo -e "${AC}$moveto $x${AB} $x  ${AE}\c"
 		fi
 		n=$((n+1))
-	done 
+	done
 }
 
 # print out the stuff in the grossest manner possible
 while :; do
 	echo -e "%{l}  $(desk)   $(mpd)%{c}$(printDate)%{r}$(launchKeyboard)  $(printVolume)  $(printBattery)  "
-	sleep 0.25
-done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT" -f "$ICO_FONT" -u 4px -F "$FG" -B "$BG" -p | bash
+	sleep 0.75
+done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT" -f "$ICO_FONT" -u 4px -F "$FG" -B "$BG" -p | sh
