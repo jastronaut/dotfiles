@@ -17,23 +17,13 @@ let g:airline_theme='bubblegum'
 let g:airline_right_sep = '░▒▓'
 let g:airline_left_sep = '▓▒░'
 let g:ycm_filetype_blacklist = {
-	\ 'notes' : 1,
-	\ 'markdown' : 1,
-	\ 'text' : 1,
-	\ 'tex' : 1,
-	\ 'html' : 1,
-	\}
+			\ 'notes' : 1,
+			\ 'markdown' : 1,
+			\ 'text' : 1,
+			\ 'tex' : 1,
+			\ 'html' : 1,
+			\}
 
-" other useful things
-filetype plugin indent on
-
-set shiftwidth=4
-set tabstop=4
-set pastetoggle=<F2>
-set number
-set incsearch
-set mouse=a
-set noswapfile
 let g:UltiSnipsExpandTrigger="<F9>"
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
@@ -41,8 +31,30 @@ autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-e> :NERDTreeToggle<CR>
 
+" other useful things
+filetype plugin on
+filetype plugin on
+set tabstop=4
+set shiftwidth=4
+set pastetoggle=<F2>
+set number
+set incsearch
+set smartcase
+set hlsearch
+set mouse=a
+set noswapfile
+set modeline
+
 autocmd BufWritePre * :%s/\s\+$//e
 hi Normal ctermbg=none
 
-set modeline
+nmap <C-tab> :tabnext<cr>
+imap <C-tab> <ESC>:tabnext<cr>i
 imap jj <Esc>
+
+if has("autocmd")
+	autocmd BufReadPost *
+		\ if line("'\"") > 0 && line ("'\"") <= line("$") |
+		\   exe "normal! g'\"" |
+		\ endif
+endif
