@@ -47,8 +47,9 @@ alias batt="acpi -b"
 alias svim="sudo -E vim"
 alias fungeon='cd /run/media/$USER/SHITDUNGEON'
 alias ':q'='bye'
-alias con='nmtui'
+alias err='cat .xsession-errors'
 alias grep='grep --color=always'
+alias 'g++'='g++ -std=c++11'
 ## pacman aliases
 alias amen='pacaur -Syu'
 alias pacinfo='pacaur -Qi'
