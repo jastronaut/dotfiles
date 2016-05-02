@@ -9,11 +9,7 @@ URxvt.letterSpace: 0
 URxvt.url-launcher: /usr/bin/firefox
 URxvt.matcher.button: 1
 
-! copy and pasta
 URxvt.perl-ext-common: default,clipboard
-!,tabbed
-
-! misc stuff
 URxvt.iso14755: false
 URxvt.scrollBar: false
 URxvt.internalBorder: 35
@@ -23,6 +19,8 @@ URxvt.externalBorder: 0
 dzen2.font: Fantasque Sans Mono:size=17
 dzen2.foreground: #e8e6df
 dzen2.background: #2d2d2d
+
+! current colorscheme: minto -- check colors directory for more info
 
 #define COLOR0 #19201f
 #define COLOR1 #799da0
