@@ -7,6 +7,12 @@
 super + Return
 	urxvt
 
+alt + shift + t
+	xinput disable 15
+
+super + shift + t
+	xinput enable 15
+
 super + c
 	firefox
 
@@ -19,7 +25,7 @@ super + F1
 super + F2
 	xbacklight +1
 
-{super,alt} + F4
+super + F4
 	mpc toggle
 
 super + o
