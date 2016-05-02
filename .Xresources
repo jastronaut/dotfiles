@@ -1,7 +1,7 @@
 ! jastronauts .Xresources
 
 ! fonts
-!URxvt.font: xft:Inconsolata for Powerline:size=18
+!URxvt.font: xft:Inconsolata for Powerline:size 18
 URxvt.font: xft:Fantasque Sans Mono:size=17
 URxvt.letterSpace: 0
 
@@ -24,22 +24,22 @@ dzen2.font: Fantasque Sans Mono:size=17
 dzen2.foreground: #e8e6df
 dzen2.background: #2d2d2d
 
-#define COLOR0 #142014
-#define COLOR1 #4ba07e
-#define COLOR2 #1e91a0
-#define COLOR3 #0e81a0
-#define COLOR4 #77a095
-#define COLOR5 #3d8ca0
-#define COLOR6 #0b83a0
-#define COLOR7 #879ea0
-#define COLOR8 #307081
-#define COLOR9 #a9c1c8
-#define COLOR10 #8cb7c8
-#define COLOR11 #b4c0cc
-#define COLOR12 #d9d1d1
-#define COLOR13 #c6d5e0
-#define COLOR14 #d7dce0
-#define COLOR15 #e0dbd8
+#define COLOR0 #19201f
+#define COLOR1 #799da0
+#define COLOR2 #7393a0
+#define COLOR3 #718fa0
+#define COLOR4 #7593a0
+#define COLOR5 #7595a0
+#define COLOR6 #a09a9a
+#define COLOR7 #afa19d
+#define COLOR8 #bbafa7
+#define COLOR9 #c8bcb2
+#define COLOR10 #c8beb2
+#define COLOR11 #d1beb4
+#define COLOR12 #d9c3b9
+#define COLOR13 #e0c4bd
+#define COLOR14 #e0c1bb
+#define COLOR15 #e0c0bb
 
 *.foreground:   #d3d0c8
 *.background:   #2d2d2d
