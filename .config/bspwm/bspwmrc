@@ -33,6 +33,7 @@ bspc rule -a Screenkey manage=off
 xrdb ~/.Xresources
 xsetroot -cursor_name left_ptr
 # xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+dunst &
 feh --bg-tile pictures/wall.png
 compton --backend glx --paint-on-overlay --vsync opengl-swc --config ~/.config/candy.conf -b
 dropbox &
