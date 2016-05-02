@@ -19,7 +19,7 @@ super + F1
 super + F2
 	xbacklight +1
 
-super + F4
+{super,alt} + F4
 	mpc toggle
 
 super + o
@@ -60,9 +60,11 @@ super + Escape
 #
 
 # quit bspwm normally
+# i do not know how to commit graceful murder
 alt + shift + e
 	killall lemonbar; \
 	mpd --kill; \
+	killall dunst; \
 	bspc quit
 
 # close and kill
