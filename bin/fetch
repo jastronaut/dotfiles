@@ -5,7 +5,7 @@
 #
 
 title="$(whoami) @ $(hostname)"
-os="arch linux"
+os="$(cat /etc/*release | grep  -h "^NAME" | grep -o '".*"' | sed 's/"//g')"
 kernel="$(uname -r -o)"
 packages="$(pacman -Q | wc -l)"
 wm=$(wmctrl -m | grep -o "Name: .*" | cut -f2- -d' ')
