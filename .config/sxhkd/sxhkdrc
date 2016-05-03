@@ -35,8 +35,14 @@ super + o
 super + b
 	subl3
 
+# quick screenshot
 super + @XF86AudioRaiseVolume
 	maim ~/pictures/screens/$(date +%F-%T).png; \
+	notify-send -t 5 -u normal "congrats" "~ screenshot taken ~";
+
+# screenshot with custom file name via gtk window prompt.
+super + shift + F12
+	maim ~/pictures/screens/$(zenity --text="screenshot name" --entry && sleep 1).png; \
 	notify-send -t 5 -u normal "congrats" "~ screenshot taken ~";
 
 super + F8
@@ -57,7 +63,6 @@ super + @XF86AudioLowerVolume
 super + space
 	dmenu_run -dim 0.5 -fn 'Fantasque Sans Mono:size=15' -l 10 -h 40 -x 550 -y 300 -w 1000 -nb '#515151' -nf '#E8E6DF' -sb '#88AAAA' -sf '#E8E6DF'
 
-# make sxhkd reload its configuration files:
 super + Escape
 	pkill -USR1 -x sxhkd
 
