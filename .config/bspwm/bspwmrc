@@ -36,5 +36,7 @@ xsetroot -cursor_name left_ptr
 dunst &
 feh --bg-tile pictures/wall.png
 compton --backend glx --paint-on-overlay --vsync opengl-swc --config ~/.config/candy.conf -b
+mpd
+battery_warning &
 dropbox &
 panel &
