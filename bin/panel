@@ -16,7 +16,7 @@ function launchKeyboard()
 	echo -e "${AC}onboard${AB} $KEYB ${AE}"
 }
 
-function printVolume()
+function volume()
 {
 	vol=$(amixer get Master | grep % | sed -n 1p | awk -F '[' '{print $2}' | awk -F ']' '{print $1}')
 
@@ -27,7 +27,7 @@ function printVolume()
 	fi
 }
 
-function printBattery()
+function battery()
 {
 	bat=$(acpi -b | grep -P -o '[0-9]+(?=%)')
 	ch_state=$(acpi -b | cut -c12-19)
@@ -101,6 +101,6 @@ function desk()
 
 # print out the stuff in the grossest manner possible
 while :; do
-	echo -e "%{l}  $(desk)   $(mpd)%{c}$(printDate)%{r}$(launchKeyboard)  $(printVolume)  $(printBattery)  "
+	echo -e "%{l}  $(desk)   $(mpd)%{c}$(printDate)%{r}$(launchKeyboard)  $(volume)  $(battery)  "
 	sleep 0.75
 done | lemonbar -g ${PW}x${PH}+${PX}+${PY} -f "$FONT" -f "$ICO_FONT" -u 4px -F "$FG" -B "$BG" -p | sh
