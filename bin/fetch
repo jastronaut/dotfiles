@@ -9,7 +9,7 @@ os="$(cat /etc/*release | grep  -h "^NAME" | grep -o '".*"' | sed 's/"//g')"
 kernel="$(uname -r -o)"
 packages="$(pacman -Q | wc -l)"
 wm=$(wmctrl -m | grep -o "Name: .*" | cut -f2- -d' ')
-music="$(mpc current | cut -c 1-40)"
+music="$(mpc current | cut -c 1-37)..."
 shell="$SHELL"
 # gtk 3
 theme=$(cat ~/.config/gtk-3.0/settings.ini | grep -o "gtk-theme-name=.*" | cut -f2- -d'=')
@@ -30,5 +30,5 @@ echo "        ${red},888888888${dc}/${red},${dc}   ${green}packages${dc}: $packa
 echo "    ${gold}*${dc}   ${red}888888888${dc}/${red}88${dc}   ${green}wm${dc}: $wm                   *"
 echo "  .     ${red}8888888${dc}/${red}'888${dc}   ${green}shell${dc}: $shell     .         "
 echo "        ${red}'8888${dc}/${red}'8888'${dc}   ${green}gtk${dc}: $theme"
-echo " +      ( ${red}'${dc},${red}'888P'${dc}     ${green}song${dc}: $music   .  ${gold}*${dc}"
+echo " +      ( ${red}'${dc},'${red}888P'${dc}     ${green}song${dc}: $music   .  ${gold}*${dc}"
 echo "        '-'         '           +"
