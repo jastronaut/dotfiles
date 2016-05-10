@@ -9,7 +9,7 @@ os="$(cat /etc/*release | grep  -h "^NAME" | grep -o '".*"' | sed 's/"//g')"
 kernel="$(uname -r -o)"
 packages="$(pacman -Q | wc -l)"
 wm=$(wmctrl -m | grep -o "Name: .*" | cut -f2- -d' ')
-music="$(mpc current | cut -c 1-37)..."
+music="$(mpc current | cut -c 1-40)"
 shell="$SHELL"
 # gtk 3
 theme=$(cat ~/.config/gtk-3.0/settings.ini | grep -o "gtk-theme-name=.*" | cut -f2- -d'=')
