@@ -53,8 +53,9 @@ alias 'g++'='g++ -std=c++11'
 ## pacman aliases
 alias amen='pacaur -Syu'
 alias pacinfo='pacaur -Qi'
-alias pacsearchall='pacaur -Ss'
+alias pacsearch='pacaur -Ss'
 alias pacsearchloc='pacaur -Qs'
+alias pacrm='pacaur -Rs'
 alias pacorphans='pacaur -Qtdq'
 
 # path stuff - i have no idea what is going on
