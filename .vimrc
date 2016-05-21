@@ -24,7 +24,7 @@ let g:ycm_filetype_blacklist = {
 			\ 'html' : 1,
 			\}
 
-let g:UltiSnipsExpandTrigger="<F9>"
+let g:UltiSnipsExpandTrigger="<S-tab>"
 let g:closetag_filenames = "*.html,*.xhtml,*.phtml"
 
 autocmd StdinReadPre * let s:std_in=1
@@ -32,8 +32,7 @@ autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
 map <C-e> :NERDTreeToggle<CR>
 
 " other useful things
-filetype plugin on
-filetype plugin on
+filetype indent plugin on
 set tabstop=4
 set shiftwidth=4
 set pastetoggle=<F2>
