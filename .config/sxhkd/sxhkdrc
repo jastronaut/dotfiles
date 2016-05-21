@@ -13,7 +13,7 @@ alt + shift + t
 super + shift + t
 	xinput enable 15
 
-super + c
+super + w
 	firefox
 
 super + n
@@ -22,8 +22,14 @@ super + n
 super + F1
 	xbacklight -1
 
+super + alt + F1
+	xbacklight -5
+
 super + F2
 	xbacklight +1
+
+super + alt + F2
+	xbacklight +5
 
 super + F4
 	mpc toggle
@@ -35,6 +41,9 @@ super + o
 super + b
 	subl3
 
+super + l
+	lock.sh
+
 # quick screenshot
 super + @XF86AudioRaiseVolume
 	maim ~/pictures/screens/$(date +%F-%T).png; \
@@ -42,11 +51,11 @@ super + @XF86AudioRaiseVolume
 
 # screenshot with custom file name via gtk window prompt.
 super + shift + F12
-	maim ~/pictures/screens/$(zenity --text="screenshot name" --entry && sleep 1).png; \
+	maim ~/pictures/screens/"$(zenity --text='screenshot name' --entry && sleep 1)".png; \
 	notify-send -t 5 -u normal "congrats" "~ screenshot taken ~";
 
 super + F8
-	chromium --force-device-scale-factor=1.60
+	google-chrome-stable --force-device-scale-factor=1.60
 
 XF86AudioRaiseVolume
 	amixer -q set Master 5%+ unmute
@@ -74,8 +83,8 @@ super + Escape
 # i do not know how to commit graceful murder
 alt + shift + e
 	killall lemonbar; \
-	mpd --kill; \
 	killall dunst; \
+	mpd --kill; \
 	bspc quit
 
 # close and kill
