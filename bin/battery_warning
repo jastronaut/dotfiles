@@ -8,7 +8,7 @@ while :; do
 	batt_level=$(acpi -b | grep -P -o '[0-9]+(?=%)')
 	charge_state=$(acpi -b | cut -c12-19)
 	if [[ $charge_state != "Charging" ]]; then
-		if [ $batt_level -le 20 ] && [ $batt_level -ge 10 ]; then
+		if [ $batt_level -lt 20 ] && [ $batt_level -ge 10 ]; then
 			notify-send -u low "Battery is under 20 percent." "Consider a charger."; \
 			sleep 5m;
 		elif [ $batt_level -lt 10 ] && [ $batt_level -ge 5 ]; then
