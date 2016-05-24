@@ -7,6 +7,7 @@
 super + Return
 	urxvt
 
+# general program things
 alt + shift + t
 	xinput disable 15
 
@@ -19,28 +20,46 @@ super + w
 super + n
 	pcmanfm
 
+super + o
+	octave --force-gui
+
+super + F8
+	google-chrome-stable --force-device-scale-factor=1.60
+
+super + b
+	subl3
+
+# change brightness
 super + F1
 	xbacklight -1
-
-super + alt + F1
-	xbacklight -5
 
 super + F2
 	xbacklight +1
 
+super + alt + F1
+	xbacklight -5
+
 super + alt + F2
 	xbacklight +5
+
+# music controls
+super + F3
+	mpc prev
+
+super + F5
+	mpc next
 
 super + F4
 	mpc toggle
 
-super + o
-	octave --force-gui
+# volume controls
+XF86AudioRaiseVolume
+	amixer -q set Master 5%+ unmute
 
-# because i get too lazy to use vim
-super + b
-	subl3
+XF86AudioLowerVolume
+	amixer -q set Master 5%- unmute
 
+# lock screen with i3lock
 super + l
 	lock.sh
 
@@ -49,20 +68,12 @@ super + @XF86AudioRaiseVolume
 	maim ~/pictures/screens/$(date +%F-%T).png; \
 	notify-send -t 5 -u normal "congrats" "~ screenshot taken ~";
 
-# screenshot with custom file name via gtk window prompt.
+# screenshot with custom file name via zenity
 super + shift + F12
 	maim ~/pictures/screens/"$(zenity --text='screenshot name' --entry && sleep 1)".png; \
 	notify-send -t 5 -u normal "congrats" "~ screenshot taken ~";
 
-super + F8
-	google-chrome-stable --force-device-scale-factor=1.60
-
-XF86AudioRaiseVolume
-	amixer -q set Master 5%+ unmute
-
-XF86AudioLowerVolume
-	amixer -q set Master 5%- unmute
-
+# reconfigure touchscreen
 super + @XF86AudioLowerVolume
 	xinput disable 15; \
 	xinput enable 15; \
@@ -80,11 +91,11 @@ super + Escape
 #
 
 # quit bspwm normally
-# i do not know how to commit graceful murder
+# i do not know how to commit graceful murder and cannot do shell for loops
 alt + shift + e
 	killall lemonbar; \
 	killall dunst; \
-	mpd --kill; \
+	for thing in $(bspc query -N); do bspc node $thing -c; done; \
 	bspc quit
 
 # close and kill
@@ -169,8 +180,8 @@ super + ctrl + space
 ctrl + shift + space
 	bspc query -N -d | xargs -I id -n 1 bspc node id -p cancel
 
-alt + shift + {semicolon, period}
-			bspc node @/ -R {90,720}
+alt + shift + semicolon
+			bspc node @/ -R 90
 
 #
 # resize tiled/floating
