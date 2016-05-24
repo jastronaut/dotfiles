@@ -35,5 +35,4 @@ dunst &
 feh --bg-fill pictures/wall.png
 compton --backend glx --paint-on-overlay --vsync opengl-swc --config ~/.config/candy.conf -b
 battery_warning &
-dropbox &
 panel &
