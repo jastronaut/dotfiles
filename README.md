@@ -2,7 +2,6 @@
 
 ![fetch](http://i.imgur.com/BdL71ud.png)
 ![colors](http://i.imgur.com/SNhf4cb.png)
-[gtk (tw: anime)](http://i.imgur.com/yRQ8R4S.png)
 
 colors used in screenshot: mizudori (check ~/colors for others)
 
