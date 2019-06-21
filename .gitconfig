@@ -1,10 +1,9 @@
 [user]
-	name = Jas
-	email = 41971x@gmail.com
+	name = Jas Delgado
+	email = jas@jasdelgado.com
 [alias]
 	s = status
 	cm = commit
-	d = diff
-	ch = checkout
 	a = add
-	lg = log --pretty=oneline
+[core]
+	excludesfile = /Users/jastronaut/.gitignore
