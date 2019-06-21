@@ -1,9 +1,8 @@
 #
 # jastronaut's .zshrc
-
-HISTFILE=~/.config/zsh/.histfile
-HISTSIZE=1000
-SAVEHIST=1000
+# HISTFILE=~/.config/zsh/.histfile
+#HISTSIZE=1000
+#SAVEHIST=1000
 bindkey -e
 zstyle :compinstall filename '/home/$USER/.zshrc'
 
@@ -23,9 +22,9 @@ function texx()
 	pdflatex $1.tex && bibtex $1.aux && pdflatex $1.tex
 }
 
-function sym()
+function dlmusic()
 {
-	ln -s "$1" "$(pwd)"
+	youtube-dl --extract-audio --audio-format mp3 "$1"
 }
 
 # tab stuff
@@ -41,45 +40,27 @@ fi
 setopt auto_cd
 
 # aliases
-alias forts="fortune -s"
 alias la="ls -a"
-alias batt="acpi -b"
 alias svim="sudo -E vim"
-alias fungeon='cd /run/media/$USER/SHITDUNGEON'
 alias ':q'='bye'
-alias err='cat .xsession-errors'
 alias grep='grep --color=always'
-alias 'g++'='g++ -std=c++11'
-## pacman aliases
-alias amen='pacaur -Syu'
-alias pacinfo='pacaur -Qi'
-alias pacsearch='pacaur -Ss'
-alias pacsearchloc='pacaur -Qs'
-alias pacrm='pacaur -Rs'
-alias pacorphans='pacaur -Qtdq'
 
-# path stuff - i have no idea what is going on
-export PATH=~/bin:~/bin/colorscripts:~/bin/other:~/.config/bspwm:$PATH
-export PATH=~/.gem/ruby/2.3.0/bin:$PATH
+alias amen='brew update'
+
+alias mongod='mongod --dbpath ~/www/mongo'
+
+alias showhidden='defaults write com.apple.finder AppleShowAllFiles YES'
+alias hidehidden='defaults write com.apple.finder AppleShowAllFiles NO'
+alias pip='pip3'
+alias dls="cd '~/Library/Mobile Documents/com~apple~CloudDocs/Downloads'"
+alias icscon="ssh jasmincd@openlab.ics.uci.edu"
+alias appjascon="ssh appjas@apps.jasdelgado.com"
+alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs"
+alias httpdre="sudo /usr/sbin/apachectl restart"
 
 # get the keys working correctly
-typeset -A key
-
-key[Home]=${terminfo[khome]}
-key[End]=${terminfo[kend]}
-key[Delete]=${terminfo[kdch1]}
-key[Up]=${terminfo[kcuu1]}
-key[Down]=${terminfo[kcud1]}
-key[Left]=${terminfo[kcub1]}
-key[Right]=${terminfo[kcuf1]}
-
-[[ -n "${key[Home]}"     ]]  && bindkey  "${key[Home]}"    beginning-of-line
-[[ -n "${key[End]}"      ]]  && bindkey  "${key[End]}"     end-of-line
-[[ -n "${key[Delete]}"   ]]  && bindkey  "${key[Delete]}"  delete-char
-[[ -n "${key[Up]}"       ]]  && bindkey  "${key[Up]}"      up-line-or-history
-[[ -n "${key[Down]}"     ]]  && bindkey  "${key[Down]}"    down-line-or-history
-[[ -n "${key[Left]}"     ]]  && bindkey  "${key[Left]}"    backward-char
-[[ -n "${key[Right]}"    ]]  && bindkey  "${key[Right]}"   forward-char
+bindkey "^[^[[D" backward-word
+bindkey "^[^[[C" forward-word
 
 function zle-line-init()
 {
@@ -93,3 +74,9 @@ function zle-line-finish()
 }
 zle -N zle-line-init
 zle -N zle-line-finish
+
+
+# make zsh colorize ls output
+export CLICOLOR=1
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
