@@ -3,13 +3,12 @@
 # bar settings
 yabai -m config status_bar                   on
 yabai -m config status_bar_text_font         "Helvetica Neue:Bold:13.0"
-# yabai -m config status_bar_icon_font         "FontAwesome:Regular:12.0"
-yabai -m config status_bar_background_color  0xff1c1f28
-yabai -m config status_bar_foreground_color  0xfffdf0ed
-# yabai -m config status_bar_space_icon_strip  I II III IV V VI VII VIII IX X
-yabai -m config status_bar_space_icon_strip 1 2 3 4
-yabai -m config status_bar_power_icon_strip	p
-yabai -m config status_bar_space_icon        s
+yabai -m config status_bar_text_font         "Helvetica Neue:Bold:13.0"
+yabai -m config status_bar_background_color	 0xff1c1f28
+yabai -m config status_bar_foreground_color	 0xfffdf0ed
+yabai -m config status_bar_space_icon_strip  1 2 3 4
+yabai -m config status_bar_power_icon_strip	 🔋 ⚡️
+yabai -m config status_bar_space_icon        X
 yabai -m config status_bar_clock_icon        🕐
 
 
@@ -41,7 +40,7 @@ yabai -m config right_padding                15
 yabai -m config window_gap                   10
 
 # rules
-yabai -m rule --add app=Books manage=float
-yabai -m rule --add app=\"App Store\" manage=float
+yabai -m rule --add title=Books manage=float
+yabai -m rule --add title=\"App Store\" manage=float
 
 echo "yabai configuration loaded.."
