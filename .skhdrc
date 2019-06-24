@@ -1,5 +1,6 @@
 # open terminal
-cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
+# cmd - return : /Applications/Kitty.app/Contents/MacOS/kitty --single-instance -d ~
+cmd - return : /Applications/iTerm.app/Contents/MacOS/iTerm2
 
 # focus window
 alt - h : yabai -m window --focus west
@@ -154,6 +155,9 @@ alt - p : yabai -m window --toggle sticky;\
           yabai -m window --grid 5:5:4:0:1:1
 
 # change layout of desktop
-ctrl + alt - a : yabai -m space --layout bsp
-ctrl + alt - d : yabai -m space --layout float
+# ctrl + alt - a : yabai -m space --layout bsp
+cmd + alt - t : yabai -m space --layout bsp
+# ctrl + alt - d : yabai -m space --layout float
+cmd + alt - f : yabai -m space --layout float
+
 
