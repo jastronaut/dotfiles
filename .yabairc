@@ -8,7 +8,7 @@ yabai -m config status_bar_background_color	 0xff1c1f28
 yabai -m config status_bar_foreground_color	 0xfffdf0ed
 yabai -m config status_bar_space_icon_strip  1 2 3 4
 yabai -m config status_bar_power_icon_strip	 🔋 ⚡️
-yabai -m config status_bar_space_icon        X
+# yabai -m config status_bar_space_icon        X
 yabai -m config status_bar_clock_icon        🕐
 
 
@@ -40,7 +40,9 @@ yabai -m config right_padding                15
 yabai -m config window_gap                   10
 
 # rules
-yabai -m rule --add title=Books manage=float
-yabai -m rule --add title=\"App Store\" manage=float
-
+yabai -m rule --add title="^Books$" manage=off border=off
+yabai -m rule --add title="^App Store$" manage=off border=off
+yabai -m rule --add app="^System Preferences$" manage=off
+yabai -m rule --add app="^Mail$" manage=off border=off
+yabai -m rule --add app="^Safari$" title="^(General|Tabs|Autofill|Passwords|Search|Security|Privacy|Websites|Extensions|Advanced)$" manage=off border=off
 echo "yabai configuration loaded.."
