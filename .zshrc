@@ -1,10 +1,9 @@
 #
 # jastronaut's .zshrc
-# HISTFILE=~/.config/zsh/.histfile
-#HISTSIZE=1000
-#SAVEHIST=1000
+#
+
 bindkey -e
-zstyle :compinstall filename '/home/$USER/.zshrc'
+# zstyle :compinstall filename '/home/$USER/.zshrc'
 
 autoload -Uz compinit
 compinit
@@ -15,13 +14,6 @@ autoload -U colors && colors
 promptinit
 PROMPT='%F{red}%~%f
 » '
-
-# compile .tex, .bib, then .tex again
-function texx()
-{
-	pdflatex $1.tex && bibtex $1.aux && pdflatex $1.tex
-}
-
 function dlmusic()
 {
 	youtube-dl --extract-audio --audio-format mp3 "$1"
@@ -39,24 +31,27 @@ fi
 
 setopt auto_cd
 
+export PATH=/Users/jastronaut/Library/Python/3.8/lib/python/site-packages:$PATH
+
+
 # aliases
+## general
 alias la="ls -a"
 alias svim="sudo -E vim"
-alias ':q'='bye'
 alias grep='grep --color=always'
+alias agq='ag -Q'
+alias pretty='npx prettier --write'
 
 alias amen='brew update'
-
-alias mongod='mongod --dbpath ~/www/mongo'
-
-alias showhidden='defaults write com.apple.finder AppleShowAllFiles YES'
-alias hidehidden='defaults write com.apple.finder AppleShowAllFiles NO'
 alias pip='pip3'
-alias dls="cd '~/Library/Mobile Documents/com~apple~CloudDocs/Downloads'"
-alias icscon="ssh jasmincd@openlab.ics.uci.edu"
-alias appjascon="ssh appjas@apps.jasdelgado.com"
-alias icloud="cd ~/Library/Mobile\ Documents/com~apple~CloudDocs"
-alias httpdre="sudo /usr/sbin/apachectl restart"
+
+alias igt='git'
+alias ':q'='bye'
+
+
+## macos
+alias preview='open -a Preview'
+
 
 # get the keys working correctly
 bindkey "^[^[[D" backward-word
@@ -75,8 +70,27 @@ function zle-line-finish()
 zle -N zle-line-init
 zle -N zle-line-finish
 
-
 # make zsh colorize ls output
 export CLICOLOR=1
 
-test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+# test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+export FZF_DEFAULT_COMMAND='fd --type f --hidden --follow --exclude .git'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export NVM_DIR="$HOME/.nvm"
+  [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+  [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+
+export PATH="/usr/local/opt/php@7.4/bin:$PATH"
+export PATH="/usr/local/opt/php@7.4/sbin:$PATH"
+
+export PATH="/Users/jastronaut/bin:$PATH"
+
+source ~/.config/dotfiles/.zshrc_work
+source ~/.config/dotfiles/.zshrc_safe
