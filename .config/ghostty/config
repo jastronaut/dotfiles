@@ -1,0 +1,55 @@
+# Ghostty config — ported from iTerm2 "Default" profile (Base16 Ocean)
+
+# Font: Fira Code 13 with ligatures (ligatures are on by default in Ghostty)
+font-family = Fira Code
+font-size = 13
+
+# Window size (iTerm2: 80x25)
+window-width = 80
+window-height = 25
+
+# Colors — Base16 Ocean
+background = #2b303b
+foreground = #d6dbe5
+
+# Normal ANSI colors
+palette = 0=#2b303b
+palette = 1=#bf616a
+palette = 2=#a3be8c
+palette = 3=#ebcb8b
+palette = 4=#8fa1b3
+palette = 5=#b48ead
+palette = 6=#96b5b4
+palette = 7=#dde2eb
+
+# Bright ANSI colors
+palette = 8=#65737e
+palette = 9=#d08770
+palette = 10=#a3be8c
+palette = 11=#ebcb8b
+palette = 12=#a7adba
+palette = 13=#dfe1e8
+palette = 14=#ab7967
+palette = 15=#eff1f5
+
+# Cursor (iTerm2: non-blinking block)
+cursor-style = block
+cursor-style-blink = true
+cursor-color = #c0c5ce
+cursor-text = #2b303b
+
+# Selection
+selection-background = #4f5b66
+selection-foreground = #c0c5ce
+
+# iTerm2 had "Use Bright Bold" — render bold text with bright colors
+bold-is-bright = true
+
+# Scrollback (iTerm2 was 1000 lines; Ghostty sizes this in bytes — this is
+# roughly a few thousand lines and can be raised freely)
+scrollback-limit = 2000000
+
+
+window-padding-x = 8
+window-padding-y = 8
+tab-inherit-working-directory = false
