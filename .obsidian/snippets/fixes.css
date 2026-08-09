@@ -1,0 +1,49 @@
+/* .workspace-leaf-content[data-mode="source"] */
+.list-bullet:after {
+  /* height: 2px;
+  border-radius: 0;
+  width: 8px; */
+  content: "\2014";
+  border-radius: 0;
+  width: 0;
+}
+
+/* .workspace-leaf-content[data-mode="source"] */
+.list-bullet:before {
+  display: none;
+}
+
+/* .workspace-leaf-content[data-mode="source"] */
+.list-bullet {
+  color: var(--text-normal);
+}
+
+/* .workspace-leaf-content[data-mode="source"] */
+.cm-formatting-list .list-bullet:after {
+  display: none;
+}
+
+.markdown-rendered .list-bullet {
+  margin-inline-start: -1em;
+}
+
+/* Font for the markdown source panel
+
+/* Editor font: make thicker */
+.cm-s-obsidian .CodeMirror-line * {
+  -webkit-font-smoothing: auto;
+}
+
+.cm-s-obsidian .cm-header {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Set color of bold text */
+.cm-s-obsidian .cm-strong, strong {
+color: var(--bright-red);
+}
+
+/* Set color of italic text */
+.cm-em, em {
+color: goldenrod;
+} 
